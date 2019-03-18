@@ -1,12 +1,13 @@
 'use strict'
 
-const logCurrentState = () => {
+const logCurrentState = event => {
   const documentStates = {
     prerender: 'Page is prerendered!',
     hidden: 'Page is hidden!',
     visible: 'Page is visible!'
   }
-  console.log(documentStates[ document.visibilityState ])
+  const visibilityState = event.target.visibilityState
+  console.log(documentStates[ visibilityState ])
 }
 
 document.addEventListener('visibilitychange', logCurrentState)
