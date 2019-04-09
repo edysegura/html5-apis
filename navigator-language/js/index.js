@@ -1,10 +1,10 @@
 'use strict'
 
-function addLanguage(language) {
+function addToList(language) {
   const ol = document.querySelector('ol')
   const li = document.createElement('li')
   li.textContent = language
   ol.appendChild(li)
 }
 
-navigator.languages.forEach(addLanguage)
+navigator.languages.forEach(addToList)
