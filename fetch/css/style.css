@@ -1,0 +1,4 @@
+li {
+  text-transform: capitalize;
+  list-style-type: decimal-leading-zero;
+}
