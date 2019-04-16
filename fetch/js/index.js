@@ -7,22 +7,12 @@ function addToList(pokemon) {
   ol.appendChild(li)
 }
 
-function showPokemons(pokemons) {
-  pokemons.forEach(addToList)
-}
-
-;(async function fetchData() {
+async function fetchPokemonData() {
   const endpoint = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=151'
   const response = await fetch(endpoint)
   const data = await response.json()
-  showPokemons(data.results)
-})()
-
-async function getUserAsync(name) {
-  const endpoint = `https://api.github.com/users/${name}`
-  const response = await fetch(endpoint)
-  const data = await response.json()
-  return data
+  return data.results
 }
 
-getUserAsync('edysegura').then(data => console.log(data))
+fetchPokemonData()
+  .then(pokemons => pokemons.forEach(addToList))
