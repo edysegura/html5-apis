@@ -19,7 +19,8 @@ function showPokemons(pokemons) {
 })()
 
 async function getUserAsync(name) {
-  const response = await fetch(`https://api.github.com/users/${name}`)
+  const endpoint = `https://api.github.com/users/${name}`
+  const response = await fetch(endpoint)
   const data = await response.json()
   return data
 }
