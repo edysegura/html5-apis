@@ -1,13 +1,16 @@
 'use strict'
 
-document.addEventListener('copy', event => {
-  console.log('Content copied')
-})
+function addToLog(text) {
+  const textarea = document.querySelector('textarea')
+  textarea.value += text + '\n'
+}
 
-document.addEventListener('cut', event => {
-  console.log(event.target.value)
+document.addEventListener('copy', event => {
+  console.log('Content copied', event)
+  addToLog('Content copied')
 })
 
 document.addEventListener('paste', event => {
-  console.log(event.clipboardData.getData('text/plain'))
+  const text = event.clipboardData.getData('text/plain')
+  addToLog(text)
 })
