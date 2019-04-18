@@ -4,7 +4,7 @@ const [ enableButton, notificationButton ] = document.querySelectorAll('button')
 
 function enableNotification() {
   Notification.requestPermission()
-    .then(permission => console.log(permission))
+    .then(permission => console.log('Notification permission: ' + permission))
 }
 
 function showNotification() {
