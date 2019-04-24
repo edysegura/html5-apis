@@ -23,6 +23,6 @@ for (let index = 0; index < 1000000; index++) {
 console.timeEnd('Generate data')
 
 self.onmessage = event => {
-  const peopleFromBrazil = data.filter(person => person.country === event.data)
-  self.postMessage(peopleFromBrazil)
+  const peopleByCountry = data.filter(person => person.country === event.data)
+  self.postMessage(peopleByCountry)
 }
