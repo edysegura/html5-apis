@@ -6,4 +6,4 @@ worker.addEventListener('message', event => {
   console.log(event.data)
 })
 
-worker.postMessage('Hello WebWorker')
+worker.postMessage('Brasil')
