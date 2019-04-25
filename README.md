@@ -4,6 +4,7 @@ Examples about HTML5 Web APIs that you may not know!
 
 ## Examples
 
+ - [Clipboard](https://edysegura.github.com/html5-apis/clipboard)
  - [Fetch API](https://edysegura.github.com/html5-apis/fetch)
  - [FileReader API](https://edysegura.github.com/html5-apis/file-reader)
  - [Navigator Language](https://edysegura.github.com/html5-apis/navigator-language)
