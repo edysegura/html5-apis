@@ -16,3 +16,4 @@ Examples about HTML5 Web APIs that you may not know!
 ## References
 
 - [Web APIs you may didn't know existed](https://www.youtube.com/watch?v=EZpdEljk5dY)
+- [Web Workers Demystified](https://medium.com/clockwork-nl/web-workers-demystified-fb4c84bd566c)
