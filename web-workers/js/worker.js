@@ -1,5 +1,5 @@
 'use strict'
 
-self.onmessage = event => {
-  self.postMessage('You said: ' + event.data)
+self.onmessage = ({ data }) => {
+  self.postMessage('You said: ' + data)
 }

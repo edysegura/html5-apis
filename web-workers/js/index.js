@@ -2,8 +2,8 @@
 
 const worker = new Worker('js/worker.js')
 
-worker.addEventListener('message', event => {
-  console.log(event.data)
+worker.addEventListener('message', ({ data }) => {
+  console.log(data)
 })
 
-worker.postMessage('Hello WebWorker')
+worker.postMessage('Please do something')
