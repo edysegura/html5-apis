@@ -10,14 +10,13 @@ const [
 ] = document.querySelectorAll('button')
 
 showDialogButton.addEventListener('click', () => {
-  dialog.showModal && dialog.showModal()
-  dialog.open = true
+  dialog.showModal()
 })
 
 colors.addEventListener('change', () => {
   confirmButton.value = colors.value
 })
 
-dialog.addEventListener('close', event => {
+dialog.addEventListener('close', () => {
   console.log(dialog.returnValue)
 })
