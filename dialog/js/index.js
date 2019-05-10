@@ -18,5 +18,5 @@ colors.addEventListener('change', () => {
 })
 
 dialog.addEventListener('close', () => {
-  console.log(dialog.returnValue)
+  document.body.style.backgroundColor = dialog.returnValue
 })
