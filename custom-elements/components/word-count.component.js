@@ -7,12 +7,35 @@ class WordCount extends HTMLElement {
 
   setText(text) {
     this.root.innerHTML = `
-      <p>${text} <span>| has ${this.count(text)} word(s)</span></p>
+      ${ this.style() }
+      <p>${ text } <span>has ${ this.count(text) } word(s)</span></p>
     `
   }
 
   count(text) {
     return text.split(/\s+/g).length
+  }
+
+  style() {
+    return `
+      <style>
+        p {
+          font-family: Verdana;
+        }
+        span {
+          color: #aaa;
+          opacity: 0;
+          transition: opacity 0.8s;
+        }
+        span::before {
+          content: "➡️ ";
+          color: red;
+        }
+        p:hover span {
+          opacity: 1;
+        }
+      </style>
+    `
   }
 }
 
