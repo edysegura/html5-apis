@@ -1,0 +1,1 @@
+import '../components/word-count.component.js'
