@@ -1,3 +1,5 @@
+import GithubProfileService from './github-profile.service.js'
+
 class GithubProfile extends HTMLElement {
   constructor() {
     super()
@@ -17,15 +19,9 @@ class GithubProfile extends HTMLElement {
     return JSON.stringify(mainFields, null, 2)
   }
 
-  async fetchUserProfile(user) {
-    const response = await fetch(`https://api.github.com/users/${user}`)
-    const data = await response.json()
-    return data
-  }
-
   async render() {
     const user = this.getAttribute('user')
-    const data = await this.fetchUserProfile(user)
+    const data = await GithubProfileService.fetchUserProfile(user)
     this.root.innerHTML = `
       ${ this.style() }
       <img src="${data.avatar_url}" alt="" />
