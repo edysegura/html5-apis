@@ -20,3 +20,4 @@ Examples about HTML5 Web APIs that you may not know!
 - [Web APIs you may didn't know existed](https://www.youtube.com/watch?v=EZpdEljk5dY)
 - [Web Workers Demystified](https://medium.com/clockwork-nl/web-workers-demystified-fb4c84bd566c)
 - [Using custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)
+- [Web Components](https://blog.andrewharvard.com/posts/web-components-2019/)
