@@ -34,3 +34,7 @@ async function fetchFromCacheWhenAvailable(request) {
 self.addEventListener('install', event => {
   event.waitUntil(precache().then(() => self.skipWaiting()))
 })
+
+self.addEventListener('fetch', event => {
+  event.respondWith(fetchFromCacheWhenAvailable(event.request))
+})
