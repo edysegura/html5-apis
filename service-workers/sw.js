@@ -9,7 +9,8 @@ async function precache() {
 }
 
 async function doCache(request) {
-  console.log('Fetching and adding to cache')
+  console.log('Fetching and adding the response data into cache')
+
   const cache = await caches.open(cacheName)
   const requestCloned = request.clone()
   const response = await fetch(requestCloned)
@@ -23,7 +24,7 @@ async function fetchFromCacheWhenAvailable(request) {
   const cache = await caches.open(cacheName)
   const match = await cache.match(request)
 
-  if(match) {
+  if (match) {
     console.log('Returning from cache')
     return match
   }
