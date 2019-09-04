@@ -4,7 +4,7 @@ async function precache() {
   const cache = await caches.open(cacheName)
   return cache.addAll([
     './',
-    '/index.html'
+    './index.html'
   ])
 }
 
