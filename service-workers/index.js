@@ -8,10 +8,12 @@ class App {
     if ('serviceWorker' in navigator) {
       console.log('Registering the Service Worker')
 
-      const success = event => console.log('Service Worker registration successful')
-      const failure = error => console.log('Service Worker registration failed: ', error)
+      const defaultMessage = 'Service Worker registration'
+      const success = event => console.log(`${defaultMessage} successful`)
+      const failure = error => console.log('${defaultMessage} failed: ', error)
 
-      navigator.serviceWorker.register('./sw.js')
+      navigator.serviceWorker
+        .register('./sw.js')
         .then(success)
         .catch(failure)
     }
