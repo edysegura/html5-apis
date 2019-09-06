@@ -18,6 +18,12 @@ class App {
         .catch(failure)
     }
   }
+
+  fetchImage() {
+    const imageId = document.getElementById('image-id').value
+    const image = document.querySelector('img')
+    image.src = `https://picsum.photos/id/${imageId}/250/250`
+  }
 }
 
-new App()
+const app = new App()
