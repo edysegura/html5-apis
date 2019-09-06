@@ -1,11 +1,13 @@
 const cacheName = 'v1'
 
+const appAssets = [
+  './',
+  './index.html'
+]
+
 async function precache() {
   const cache = await caches.open(cacheName)
-  return cache.addAll([
-    './',
-    './index.html'
-  ])
+  return cache.addAll(appAssets)
 }
 
 async function doCache(request) {
