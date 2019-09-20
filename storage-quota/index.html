@@ -8,17 +8,18 @@
 </head>
 <body>
   <h1>Storage Quote</h1>
-  <p>Usage: <span id="usage">0</span></p>
-  <p>Quota: <span id="quota">0</span></p>
+  <p>Usage: <span id="usage">0</span> bytes</p>
+  <p>Quota: <span id="quota">0</span> bytes</p>
   <p>Percent: <span id="percent">0%</span></p>
 
   <script>
     if ('storage' in navigator && 'estimate' in navigator.storage) {
       navigator.storage.estimate()
         .then(estimate => {
-          document.getElementById('usage').innerHTML = estimate.usage;
-          document.getElementById('quota').innerHTML = estimate.quota;
-          document.getElementById('percent').innerHTML = (estimate.usage * 100 / estimate.quota).toFixed(0);
+          document.getElementById('usage').textContent = estimate.usage;
+          document.getElementById('quota').textContent = estimate.quota;
+          document.getElementById('percent').textContent =
+            (estimate.usage * 100 / estimate.quota).toFixed(0);
         });
     }
   </script>
