@@ -10,7 +10,7 @@ class App {
 
       const defaultMessage = 'Service Worker registration'
       const success = () => console.log(`${defaultMessage} successful`)
-      const failure = error => console.log('${defaultMessage} failed: ', error)
+      const failure = error => console.log(`${defaultMessage} failed: `, error)
 
       navigator.serviceWorker
         .register('./sw.js')
