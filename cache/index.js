@@ -7,9 +7,15 @@ async function fetchFromNetwork(url) {
   return data
 }
 
-async function addToCache(url, response) {
-  const cache = await caches.open('MY-CACHE-KEY');
-  cache.put(url, response)
+async function setCacheLifeSpan(cache, key) {
+  const timer = 1000 * 10
+  setTimeout(() => cache.delete(key), timer)
+}
+
+async function addToCache(key, response) {
+  const cache = await caches.open('MY-CACHE-KEY')
+  cache.put(key, response)
+  setCacheLifeSpan(cache, key)
 }
 
 async function fetchFromCache(url) {
