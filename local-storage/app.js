@@ -1,11 +1,11 @@
 class App {
 
   constructor() {
-    this.setupButton();
+    this.bindButtonListener();
     this.listLocalStorageValues();
   }
 
-  setupButton() {
+  bindButtonListener() {
     const button = document.querySelector('button');
     button.addEventListener('click', () => {
       this.saveToStorage();
