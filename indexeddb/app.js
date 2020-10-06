@@ -1,4 +1,5 @@
-import { set as idbSet, get as idbGet, keys as idbKeys } from 'https://cdn.jsdelivr.net/npm/idb-keyval@3/dist/idb-keyval.mjs';
+import { set as idbSet, get as idbGet, keys as idbKeys }
+  from 'https://cdn.jsdelivr.net/npm/idb-keyval@3/dist/idb-keyval.mjs';
 
 class App {
 
@@ -22,7 +23,7 @@ class App {
         .then(() => {
           this.listLocalStorageValues();
           keyInput.value = valueInput.value = "";
-        })
+        });
     }
   }
 
