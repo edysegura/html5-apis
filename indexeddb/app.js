@@ -9,20 +9,21 @@ class App {
   }
 
   setupButton() {
-    const button = document.querySelector('button');
-    button.addEventListener('click', () => {
-      this.saveToStorage();
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      this.saveToStorage(form);
     });
   }
 
-  saveToStorage() {
-    const keyInput = document.getElementById('key');
-    const valueInput = document.getElementById('value');
-    if (keyInput.value && valueInput.value) {
-      idbSet(keyInput.value, valueInput.value)
+  saveToStorage(form) {
+    const key = form.key.value;
+    const value = form.value.value;
+    if (key && value) {
+      idbSet(key, value)
         .then(() => {
           this.listLocalStorageValues();
-          keyInput.value = valueInput.value = "";
+          form.reset();
         });
     }
   }
