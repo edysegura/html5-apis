@@ -3,12 +3,11 @@
 async function fetchFromNetwork(url) {
   const response = await fetch(url)
   addToCache(url, response.clone())
-  const data = await response.json()
-  return data
+  return await response.json()
 }
 
 async function setCacheLifeSpan(cache, key) {
-  const timer = 1000 * 10
+  const timer = 1000 * 10 // 10 seconds
   setTimeout(() => cache.delete(key), timer)
 }
 
@@ -24,9 +23,10 @@ async function fetchFromCache(url) {
   return data
 }
 
-(async function main() {
+const button = document.querySelector('button')
+button.addEventListener('click', async () => {
   const pre = document.querySelector('pre')
   const url = 'https://api.github.com/users/edysegura'
   const data = await fetchFromCache(url) || await fetchFromNetwork(url)
   pre.textContent = JSON.stringify(data, null, 2)
-})()
+})
