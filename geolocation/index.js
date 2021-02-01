@@ -9,19 +9,17 @@ function showCoordinations(position) {
 }
 
 function showMap({ latitude, longitude }) {
-  const zoomLevel = 13
-  const map = L.map('open-map')
-    .setView([latitude, longitude], zoomLevel)
-  setDefaultTitleLayer(map)
+  const mapOptions = {
+    center: [latitude, longitude],
+    zoom: 14,
+  }
+  const map = L.map('open-map', mapOptions)
+  map.addLayer(createMapLayer())
 }
 
-function setDefaultTitleLayer(map) {
+function createMapLayer() {
   const url = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-  const options = {
-    attribution: 
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  }
-  L.tileLayer(url, options).addTo(map)
+  return L.tileLayer(url)
 }
 
 if ('geolocation' in navigator) {
