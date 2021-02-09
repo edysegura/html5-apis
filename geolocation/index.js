@@ -40,7 +40,5 @@ for (const button of buttons) {
       lon: event.target.getAttribute('data-long')
     }
     map.panTo(coords)
-    fetchCep()
   })
 }
-
