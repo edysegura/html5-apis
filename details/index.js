@@ -1,7 +1,11 @@
 'use strict'
 
 const node = document.querySelector('details')
-node.addEventListener('toggle', event => {
+node.addEventListener('toggle', toggleStatus)
+
+function toggleStatus({ target: node }) {
   const span = document.querySelector('span')
-  span.textContent = event.target.open ? 'open' : 'closed'
-})
+  span.textContent = node.open
+    ? 'opened'
+    : 'closed'
+}
