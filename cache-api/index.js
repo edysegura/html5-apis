@@ -1,5 +1,3 @@
-'use strict'
-
 async function fetchFromNetwork(url) {
   const response = await fetch(url)
   addToCache(url, response.clone())
