@@ -1,46 +1,27 @@
-import { set as idbSet, get as idbGet, keys as idbKeys }
-  from 'https://cdn.jsdelivr.net/npm/idb-keyval@3/dist/idb-keyval.mjs';
+import Dexie from "https://cdn.jsdelivr.net/npm/dexie@3.0.3/dist/dexie.mjs";
 
-class App {
+async function main() {
+  let db = new Dexie("todoDB");
 
-  constructor() {
-    this.setupButton();
-    this.listLocalStorageValues();
-  }
+  db.version(1).stores({
+    tasks: "++id,userId,title,completed",
+  });
 
-  setupButton() {
-    const form = document.querySelector('form');
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      this.saveToStorage(form);
-    });
-  }
+  db.on("populate", async () => {
+    const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+    const jsonData = await response.json();
+    await db.tasks.bulkPut(jsonData);
+  });
 
-  saveToStorage(form) {
-    const key = form.key.value;
-    const value = form.value.value;
-    if (key && value) {
-      idbSet(key, value)
-        .then(() => {
-          this.listLocalStorageValues();
-          form.reset();
-        });
-    }
-  }
+  db.open();
 
-  async listLocalStorageValues() {
-    const lsValues = document.getElementById('lsValues');
+  const filteredTasks = await db.tasks
+    .where("userId")
+    .equals(10)
+    .filter((item) => !item.completed)
+    .toArray();
 
-    const toHtml = async (key) => {
-      const value = await idbGet(key);
-      return `<p>${key}: ${value}</p>`;
-    };
-
-    const keys = await idbKeys();
-    const htmlOutput = await Promise.all(keys.map(toHtml));
-
-    lsValues.innerHTML = htmlOutput.join('');
-  }
+  console.table(filteredTasks);
 }
 
-new App();
+main()
