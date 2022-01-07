@@ -1,27 +1,23 @@
 import Dexie from "https://cdn.jsdelivr.net/npm/dexie@3.0.3/dist/dexie.mjs";
 
-async function main() {
-  let db = new Dexie("todoDB");
+let db = new Dexie("todoDB");
 
-  db.version(1).stores({
-    tasks: "++id,userId,title,completed",
-  });
+db.version(1).stores({
+  tasks: "++id,userId,title,completed",
+});
 
-  db.on("populate", async () => {
-    const response = await fetch("https://jsonplaceholder.typicode.com/todos");
-    const jsonData = await response.json();
-    await db.tasks.bulkPut(jsonData);
-  });
+db.on("populate", async () => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const jsonData = await response.json();
+  await db.tasks.bulkPut(jsonData);
+});
 
-  db.open();
+db.open();
 
-  const filteredTasks = await db.tasks
-    .where("userId")
-    .equals(10)
-    .filter((item) => !item.completed)
-    .toArray();
+const filteredTasks = await db.tasks
+  .where("userId")
+  .equals(10)
+  .filter((item) => !item.completed)
+  .toArray();
 
-  console.table(filteredTasks);
-}
-
-main()
+console.table(filteredTasks);
