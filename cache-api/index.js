@@ -5,7 +5,7 @@ async function fetchFromNetwork(url) {
 }
 
 async function setCacheLifeSpan(cache, key) {
-  const timer = 1000 * 10 // 10 seconds
+  const timer = 1000 * 30 // 30 seconds
   setTimeout(() => cache.delete(key), timer)
 }
 
