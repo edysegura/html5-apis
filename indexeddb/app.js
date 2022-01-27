@@ -8,8 +8,8 @@ db.version(1).stores({
 
 db.on('populate', async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/todos')
-  const jsonData = await response.json()
-  await db.tasks.bulkPut(jsonData)
+  const todoList = await response.json()
+  await db.tasks.bulkPut(todoList)
 })
 
 db.open()
