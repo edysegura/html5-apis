@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Dialog API</title>
+    <script src="js/index.js" defer></script>
   </head>
   <body>
     <button>Show Dialog</button>
     <p>
-      Obs.: At the moment of this implementation it was not working in firefox
-      by default. You need to enable the flag "<code>dom.dialog_element.enabled</code>".
+      The &lt;dialog&gt; HTML element represents a dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow.
     </p>
-    <p>Last check: 2021-09-01</p>
     <dialog id="color-settings">
       <form method="dialog">
         <div>
@@ -31,7 +30,5 @@
         </menu>
       </form>
     </dialog>
-
-    <script src="js/index.js"></script>
   </body>
 </html>

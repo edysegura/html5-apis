@@ -3,6 +3,7 @@
 const dialog = document.getElementById('color-settings')
 const colors = document.querySelector('select')
 
+// prettier-ignore
 const [
   showDialogButton,
   cancelButton,
@@ -18,5 +19,6 @@ colors.addEventListener('change', () => {
 })
 
 dialog.addEventListener('close', () => {
+  console.log('Dialog returned value', dialog.returnValue)
   document.body.style.backgroundColor = dialog.returnValue
 })
