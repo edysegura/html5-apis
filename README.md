@@ -24,4 +24,4 @@ Examples about HTML5 Web APIs that you may not know!
 - [Web Components](https://blog.andrewharvard.com/posts/web-components-2019/)
 - [Storage for the web](https://www.youtube.com/watch?v=NNuTV-gjlZQ)
 - [Storing images and files in IndexedDB](https://hacks.mozilla.org/2012/02/storing-images-and-files-in-indexeddb/)
-- [Drag'n'Drop](https://web.dev/drag-and-drop/)
+- [Using the HTML5 Drag and Drop API](https://web.dev/drag-and-drop/)
