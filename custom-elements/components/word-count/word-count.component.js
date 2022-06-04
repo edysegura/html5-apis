@@ -29,7 +29,7 @@ class WordCount extends HTMLElement {
         }
         span::before {
           content: "➡️ ";
-          color: red;
+          color: pink;
         }
         p:hover span {
           opacity: 1;
