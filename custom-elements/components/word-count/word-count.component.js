@@ -7,8 +7,8 @@ class WordCount extends HTMLElement {
 
   render(text) {
     this.root.innerHTML = `
-      ${ this.style() }
-      <p>${ text } <span>has ${ this.count(text) } word(s)</span></p>
+      ${this.style()}
+      <p>${text} <span>has ${this.count(text)} word(s)</span></p>
     `
   }
 

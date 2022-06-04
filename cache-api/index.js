@@ -17,7 +17,7 @@ async function addToCache(key, response) {
 
 async function fetchFromCache(url) {
   const response = await caches.match(url)
-  const data = response && await response.json()
+  const data = response && (await response.json())
   return data
 }
 
@@ -25,6 +25,6 @@ const button = document.querySelector('button')
 button.addEventListener('click', async () => {
   const pre = document.querySelector('pre')
   const url = 'https://api.github.com/users/edysegura'
-  const data = await fetchFromCache(url) || await fetchFromNetwork(url)
+  const data = (await fetchFromCache(url)) || (await fetchFromNetwork(url))
   pre.textContent = JSON.stringify(data, null, 2)
 })

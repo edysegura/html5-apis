@@ -3,7 +3,7 @@ import GithubProfileService from './github-profile.service.js'
 class GithubProfile extends HTMLElement {
   constructor() {
     super()
-    this.root = this.attachShadow({mode: 'open'})
+    this.root = this.attachShadow({ mode: 'open' })
     this.render()
   }
 
@@ -23,7 +23,7 @@ class GithubProfile extends HTMLElement {
     const user = this.getAttribute('user')
     const data = await GithubProfileService.fetchUserProfile(user)
     this.root.innerHTML = `
-      ${ this.style() }
+      ${this.style()}
       <img src="${data.avatar_url}" alt="" />
       <pre>${this.mainFields(data)}</pre>
     `
