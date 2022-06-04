@@ -8,14 +8,8 @@ class GithubProfile extends HTMLElement {
   }
 
   mainFields(data) {
-    const properties = ['name', 'followers', 'bio']
-
-    const fewProperties = (newData, property) => {
-      newData[property] = data[property]
-      return newData
-    }
-
-    const mainFields = properties.reduce(fewProperties, {})
+    const { name, followers, bio } = data
+    const mainFields = { name, followers, bio }
     return JSON.stringify(mainFields, null, 2)
   }
 
