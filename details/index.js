@@ -5,7 +5,5 @@ node.addEventListener('toggle', toggleStatus)
 
 function toggleStatus({ target: node }) {
   const span = document.querySelector('span')
-  span.textContent = node.open
-    ? 'opened'
-    : 'closed'
+  span.textContent = node.open ? 'opened' : 'closed'
 }
