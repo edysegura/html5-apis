@@ -6,7 +6,7 @@ const paragraph = document.querySelector('p')
 
 function showImagePreview(file) {
   const fileReader = new FileReader()
-  fileReader.addEventListener('loadend', event => {
+  fileReader.addEventListener('loadend', (event) => {
     preview.src = event.target.result
   })
   fileReader.readAsDataURL(file)
@@ -18,12 +18,11 @@ function showText(text) {
 
 function recognizeImageText(file) {
   showText('Recognizing the image text...')
-  Tesseract.recognize(file)
-    .then(result => showText(result.text))
+  Tesseract.recognize(file).then((result) => showText(result.text))
 }
 
-inputFile.addEventListener('change', event => {
-  const [ file ] = event.target.files
+inputFile.addEventListener('change', (event) => {
+  const [file] = event.target.files
   showImagePreview(file)
   recognizeImageText(file)
 })
