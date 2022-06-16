@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FormData API</title>
-</head>
-<body>
-  <form>
-    <fieldset>
-      <legend>Genre</legend>
-      <div><label><input type="radio" name="genre" value="M"> Male</label></div>
-      <div><label><input type="radio" name="genre" value="F"> Female</label></div>
-    </fieldset>
-    <fieldset>
-      <legend>Pets</legend>
-      <div><label><input type="checkbox" name="pets" value="Dog"> Dog</label></div>
-      <div><label><input type="checkbox" name="pets" value="Cat"> Cat</label></div>
-      <div><label><input type="checkbox" name="pets" value="Fish"> Fish</label></div>
-    </fieldset>
-    <pre></pre>
-    <button type="submit">Send</button>
-    <script src="index.js"></script>
-  </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FormData API</title>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Personal</legend>
+        <div>
+          <label for="name">Name</label>
+          <input type="text" name="name" />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" name="email" />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Genre</legend>
+        <div>
+          <label><input type="radio" name="genre" value="M" /> Male</label>
+        </div>
+        <div>
+          <label><input type="radio" name="genre" value="F" /> Female</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Pets</legend>
+        <div>
+          <label><input type="checkbox" name="pets" value="Dog" /> Dog</label>
+        </div>
+        <div>
+          <label><input type="checkbox" name="pets" value="Cat" /> Cat</label>
+        </div>
+        <div>
+          <label><input type="checkbox" name="pets" value="Fish" /> Fish</label>
+        </div>
+      </fieldset>
+      <pre></pre>
+      <button type="submit">Send</button>
+      <script src="index.js"></script>
+    </form>
+  </body>
 </html>
