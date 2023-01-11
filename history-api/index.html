@@ -9,18 +9,28 @@
   <body>
     <!-- reference: https://www.youtube.com/watch?v=4GqUAaLgpgs -->
     <ul>
-      <li><a href="page-1.html">Page 1</a></li>
-      <li><a href="page-2.html">Page 2</a></li>
-      <li><a href="about.html">About</a></li>
+      <li>
+        <a href="page-1.html" data-content="Content for page 1">Page 1</a>
+      </li>
+      <li>
+        <a href="page-2.html" data-content="Content for page 2">Page 2</a>
+      </li>
+      <li>
+        <a href="about.html" data-content="This is the about page">About</a>
+      </li>
     </ul>
     <script>
       const links = document.querySelectorAll('a')
       for (const link of links) {
         link.addEventListener('click', (event) => {
           event.preventDefault()
-          history.pushState(null, null, event.target.href)
+          const link = event.target
+          history.pushState(link.dataset.content, null, link.href)
         })
       }
+      window.addEventListener('popstate', (event) => {
+        console.log(`location: ${document.location}, state: ${event.state}`)
+      })
     </script>
   </body>
 </html>
