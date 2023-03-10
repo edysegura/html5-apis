@@ -1,0 +1,8 @@
+.preview-image {
+  margin-top: 10px;
+}
+
+img,
+.ocr-result {
+  max-width: 300px;
+}
