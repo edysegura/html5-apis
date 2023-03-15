@@ -1,5 +1,4 @@
 import exifr from 'https://cdn.jsdelivr.net/npm/exifr@7.1.3/+esm'
-// import L from 'https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet-src.esm.js';
 
 const inputFile = document.querySelector('input')
 const preview = document.querySelector('img')
@@ -23,22 +22,22 @@ async function showImageMetadata(imageUrl) {
   const output = await exifr.parse(imageUrl)
   const pre = document.querySelector('pre')
   pre.textContent = JSON.stringify(output, null, 2)
-  // if(output) {
-  //   showMap()
-  // }
+  if(output) {
+    showMap(output)
+  }
 }
 
-// function showMap() {
-//   const map = L.map('map').setView([51.505, -0.09], 13)
+function showMap({latitude, longitude}) {
+  const map = L.map('map').setView([latitude, longitude], 13)
 
-//   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//     attribution:
-//       'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-//     maxZoom: 18,
-//   }).addTo(map)
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution:
+      'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+    maxZoom: 18,
+  }).addTo(map)
 
-//   L.marker([51.5, -0.09])
-//     .addTo(map)
-//     .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-//     .openPopup()
-// }
+  L.marker([latitude, longitude])
+    .addTo(map)
+    .bindPopup('This picture was taken here!')
+    .openPopup()
+}
