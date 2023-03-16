@@ -1,4 +1,5 @@
 import exifr from 'https://cdn.jsdelivr.net/npm/exifr@7.1.3/+esm'
+import Leaflet from 'https://cdn.jsdelivr.net/npm/leaflet@1.9.3/+esm'
 
 const inputFile = document.querySelector('input')
 const preview = document.querySelector('img')
@@ -28,15 +29,15 @@ async function showImageMetadata(imageUrl) {
 }
 
 function showMap({latitude, longitude}) {
-  const map = L.map('map').setView([latitude, longitude], 13)
+  const map = Leaflet.map('map').setView([latitude, longitude], 13)
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution:
       'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
     maxZoom: 18,
   }).addTo(map)
 
-  L.marker([latitude, longitude])
+  Leaflet.marker([latitude, longitude])
     .addTo(map)
     .bindPopup('This picture was taken here!')
     .openPopup()
