@@ -1,4 +1,4 @@
-'use strict'
+import Leaflet from 'https://cdn.jsdelivr.net/npm/leaflet@1.9.3/+esm'
 
 let map
 function initialize(position) {
@@ -18,14 +18,14 @@ function showMap({ latitude, longitude }) {
     center: [latitude, longitude],
     zoom: 14,
   }
-  const map = L.map('open-map', mapOptions)
+  const map = Leaflet.map('open-map', mapOptions)
     .addLayer(createMapLayer())
   return map
 }
 
 function createMapLayer() {
   const urlTemplate = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-  return L.tileLayer(urlTemplate)
+  return Leaflet.tileLayer(urlTemplate)
 }
 
 if ('geolocation' in navigator) {
