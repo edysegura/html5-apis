@@ -5,13 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Clipboard</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
     <script src="js/index.js" defer></script>
   </head>
   <body>
-    <h1>Clipboard</h1>
-    <p>Copy this text and paste this text</p>
-    <p><input type="text" value="type anything here"></p>
-    <textarea class="log"></textarea>
+    <main class="container">
+      <h1>Clipboard</h1>
+      <p>Copy this text and paste this text</p>
+      <p>
+        <input type="text" value="type anything here" />
+        <button>Copy</button>
+      </p>
+      <textarea class="log" rows="10"></textarea>
+    </main>
   </body>
 </html>
