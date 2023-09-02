@@ -9,15 +9,15 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
     />
-    <script src="js/index.js" defer></script>
+    <script src="js/index.js" type="module" defer></script>
   </head>
   <body>
     <main class="container">
       <h1>Clipboard</h1>
       <p>Copy this text and paste this text</p>
       <p class="grid">
-        <input type="text" value="type anything here" />
-        <button>Copy</button>
+        <input type="text" placeholder="type anything here" />
+        <button disabled>Copy</button>
       </p>
       <textarea class="log" rows="10"></textarea>
     </main>
