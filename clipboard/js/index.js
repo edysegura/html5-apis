@@ -8,6 +8,10 @@ input.oninput = (event) => {
 button.onclick = async () => {
   const text = input.value
   await navigator.clipboard.writeText(text)
+  button.textContent = 'Copied!'
+  setTimeout(() => {
+    button.textContent = 'Copy'
+  }, 2000)
   addToLog(`Content copied: ${text}`)
 }
 
