@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Safe Random Numbers</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <button onclick="generateNumbers()">Generate Safe Random Numbers</button>
+      <textarea></textarea>
+    </div>
+  </body>
+  <script>
+    const textarea = document.querySelector('textarea')
+    function generateNumbers() {
+      const typedArray = new Uint32Array(10)
+      crypto.getRandomValues(typedArray)
+      for (const numbers of typedArray) {
+        textarea.value += numbers + '\n'
+      }
+    }
+  </script>
+</html>
