@@ -10,7 +10,7 @@ async function shareImage() {
   const filesArray = [
     new File([blobImageAsset], `study.png`, {
       type: 'image/png',
-      lastModified: new Date().getTime(),
+      lastModified: Date.now(),
     }),
   ]
   const shareData = {
@@ -20,6 +20,7 @@ async function shareImage() {
   if (navigator.canShare && navigator.canShare(shareData)) {
     await navigator.share(shareData)
   }
+  // TODO implements a fallback to download the file
 }
 
 async function shareText() {
