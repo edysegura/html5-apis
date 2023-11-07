@@ -16,6 +16,7 @@ async function shareImage() {
   const shareData = {
     title: `study.png`,
     files: filesArray,
+    url: document.location.origin,
   }
   if (navigator.canShare && navigator.canShare(shareData)) {
     await navigator.share(shareData)
@@ -28,7 +29,7 @@ async function shareText() {
   const shareData = {
     title: 'Edy Segura',
     text: 'Fullstack Software Engineer',
-    url: 'https://edysegura.com',
+    url: document.location.origin,
   }
   if (navigator.share) {
     navigator.share(shareData).catch(console.error)
