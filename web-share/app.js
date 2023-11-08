@@ -1,20 +1,24 @@
 const shareFileButton = document.querySelector('#shareFileBtn')
 const shareTextButton = document.querySelector('#shareTextBtn')
-shareFileButton.addEventListener('click', shareImage)
+shareFileButton.addEventListener('click', () => {
+  // shareImage('https://content.planetplay.com/carbon-units/Ant_social.png')
+  shareImage('study.png')
+})
 shareTextButton.addEventListener('click', shareText)
 
-async function shareImage() {
-  console.log('clicked shareImageAsset')
-  const response = await fetch('study.png')
-  const blobImageAsset = await response.blob()
+async function shareImage(imageUrl) {
+  console.log(`clicked shareImageAsset: ${imageUrl}`)
+  const fetchedImage = await fetch(imageUrl)
+  const blobImage = await fetchedImage.blob()
+  const fileName = imageUrl.split('/').pop()
   const filesArray = [
-    new File([blobImageAsset], `study.png`, {
+    new File([blobImage], fileName, {
       type: 'image/png',
       lastModified: Date.now(),
     }),
   ]
   const shareData = {
-    title: `study.png`,
+    title: fileName,
     files: filesArray,
     url: document.location.origin,
   }
