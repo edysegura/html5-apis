@@ -1,4 +1,4 @@
-'use strict'
+import { createWorker } from 'https://cdn.jsdelivr.net/npm/tesseract.js@5.1.0/+esm'
 
 const inputFile = document.querySelector('input')
 const preview = document.querySelector('img')
@@ -16,9 +16,12 @@ function showText(text) {
   paragraph.textContent = text
 }
 
-function recognizeImageText(file) {
+async function recognizeImageText(file) {
   showText('Recognizing the image text...')
-  Tesseract.recognize(file).then((result) => showText(result.text))
+  const worker = await createWorker('eng')
+  const fileRecognition = await worker.recognize(file)
+  showText(fileRecognition.data.text)
+  worker.terminate()
 }
 
 inputFile.addEventListener('change', (event) => {
