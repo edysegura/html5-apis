@@ -1,22 +1,28 @@
 async function doRequest(httpStatusCode = 200) {
-  const output = document.querySelector('p')
-  let response
   try {
-    response = await fetch(`https://httpstat.us/${httpStatusCode}`)
-    if (response.ok) {
-      output.innerHTML = `${response.status}: ${response.statusText}`
-      return response
+    const response = await fetch(`https://httpstat.us/${httpStatusCode}`)
+    if (!response.ok) {
+      throw new Error(`${response.status}: ${response.statusText}`)
     }
-    throw new Error(`${response.status}: ${response.statusText}`)
+    return response
   } catch (error) {
-    output.innerHTML = error
-    return error
+    throw new Error(`Request error: ${error.message}`, error)
   }
 }
 
-async function performHttp404() {
+async function performGoodRequest(httpCode) {
   try {
-    doRequest(404)
+    const response = await doRequest(httpCode)
+    const text = await response.text()
+    showMessage(text)
+  } catch (error) {
+    showMessage(error.message)
+  }
+}
+
+async function performBadRequest(httpCode) {
+  try {
+    await doRequest(httpCode)
   } catch (error) {
     showMessage(error.message)
   }
