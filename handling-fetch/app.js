@@ -13,3 +13,16 @@ async function doRequest(httpStatusCode = 200) {
     return error
   }
 }
+
+async function performHttp404() {
+  try {
+    doRequest(404)
+  } catch (error) {
+    showMessage(error.message)
+  }
+}
+
+function showMessage(message) {
+  const output = document.querySelector('p')
+  output.textContent = message
+}
