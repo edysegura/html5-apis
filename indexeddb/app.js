@@ -1,6 +1,6 @@
 import Dexie from 'https://cdn.jsdelivr.net/npm/dexie@3.2.3/+esm'
 
-let db = new Dexie('pokemonDB')
+const db = new Dexie('pokemonDB')
 
 db.version(1).stores({
   pokemon: '++id,name',
@@ -23,3 +23,6 @@ const pokemon = await db.pokemon
   .toArray()
 
 console.table(pokemon)
+
+const pre = document.querySelector('pre')
+pre.textContent = JSON.stringify(pokemon, null, 2)
