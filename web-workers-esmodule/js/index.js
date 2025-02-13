@@ -1,4 +1,5 @@
-const worker = new Worker('js/worker.js', { type: 'module' })
+const url = new URL('worker.js', import.meta.url)
+const worker = new Worker(url, { type: 'module' })
 
 worker.addEventListener('message', ({ data }) => {
   console.log(data)
