@@ -5,7 +5,7 @@ input.oninput = (event) => {
   button.disabled = !event.target.value
 }
 
-button.onclick = async () => {
+button.addEventListener('click', async () => {
   const text = input.value
   await navigator.clipboard.writeText(text)
   button.textContent = 'Copied!'
@@ -13,7 +13,7 @@ button.onclick = async () => {
     button.textContent = 'Copy'
   }, 2000)
   addToLog(`Content copied: ${text}`)
-}
+})
 
 function addToLog(text) {
   const textarea = document.querySelector('textarea')
