@@ -15,6 +15,6 @@ function doSomethingInAnotherThread() {
 }
 
 function showOutput(message) {
-  const p = document.querySelector('output')
-  p.textContent = message
+  const outputElement = document.querySelector('output')
+  outputElement.textContent = message
 }
