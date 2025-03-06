@@ -12,3 +12,6 @@ button.addEventListener('click', () => {
     button.textContent = 'Keep on memory'
   }, 2000)
 })
+
+const channel = new BroadcastChannel('my_channel')
+channel.postMessage({ data: 'Hello from Page 1' })
