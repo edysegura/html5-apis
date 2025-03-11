@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Base64 Converter</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <article>
+        <header>
+          <h1>Base64 Converter</h1>
+          <p>Convert any text to Base64 encoding</p>
+        </header>
+        <div class="grid">
+          <div>
+            <label for="input">Input Text</label>
+            <textarea
+              id="input"
+              placeholder="Enter text to convert..."
+            ></textarea>
+          </div>
+          <div>
+            <label for="output">Base64 Output</label>
+            <textarea id="output" readonly></textarea>
+          </div>
+        </div>
+        <footer>
+          <button id="copy" type="button">Copy Base64</button>
+          <button id="clear" type="button" class="secondary">Clear</button>
+        </footer>
+      </article>
+    </main>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
