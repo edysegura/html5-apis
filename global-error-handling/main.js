@@ -1,5 +1,5 @@
 window.addEventListener('error', (event) => {
-  console.info('Global error:', event.error)
+  console.info('🌎 Global error tracking:', event.error.message)
 })
 
 try {
@@ -16,7 +16,5 @@ function error02() {
   throw new Error('🪰 Error 02')
 }
 
-error01()
-error02()
-
-// throw new Error('This is a global error')
+setTimeout(() => error01())
+setTimeout(() => error02())
