@@ -8,4 +8,15 @@ try {
   console.info('Caught error:', error) // This will not be caught
 }
 
-throw new Error('This is a global error')
+function error01() {
+  throw new Error('🐞 Error 01')
+}
+
+function error02() {
+  throw new Error('🪰 Error 02')
+}
+
+error01()
+error02()
+
+// throw new Error('This is a global error')
