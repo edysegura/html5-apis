@@ -8,10 +8,10 @@ form.addEventListener('submit', (event) => {
 
 function showFormValues(form) {
   const data = new FormData(form)
-  const keys = new Set(data.keys())
-  const formValues = []
-  for (const key of keys) {
-    formValues.push({ field: key, values: data.getAll(key) })
-  }
+  const fieldsName = Array.from(new Set(data.keys()))
+  const formValues = fieldsName.map((fieldName) => ({
+    fieldName,
+    value: data.getAll(fieldName),
+  }))
   pre.textContent = JSON.stringify(formValues, null, 2)
 }
