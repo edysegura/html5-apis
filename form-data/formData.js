@@ -8,7 +8,8 @@ const response = await fetch('https://httpbin.org/post', {
 })
 const data = await response.json()
 
-console.log(data)
+console.log('Response: ', data)
+console.log('QueryString: ', new URLSearchParams(formData).toString())
 
 // node formData.js
 // bun formData.js
