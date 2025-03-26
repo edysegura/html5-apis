@@ -28,11 +28,15 @@ showDialogButton.addEventListener('click', () => {
 })
 
 closeButton.addEventListener('click', () => {
-  dialog.close()
+  dialog.close('closed')
 })
 
 cancelButton.addEventListener('click', () => {
-  dialog.close()
+  dialog.close('cancelled')
+})
+
+confirmButton.addEventListener('click', () => {
+  dialog.close('confirmed')
 })
 
 dialog.addEventListener('close', () => {
