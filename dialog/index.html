@@ -4,33 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Dialog API</title>
-    <script src="js/index.js" defer></script>
+    <title>HTML5 Dialog API</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <script src="main.js" defer></script>
   </head>
-  <body style="height: 1000px">
-    <button>Show Dialog</button>
-    <p>
-      The &lt;dialog&gt; HTML element represents a dialog box or other
-      interactive component, such as a dismissible alert, inspector, or
-      subwindow.
-    </p>
-    <dialog id="color-settings">
-      <form method="dialog">
-        <div>
-          <label>
-            <select>
-              <option value="white" selected>White</option>
-              <option value="red">Red</option>
-              <option value="green">Green</option>
-              <option value="blue">Blue</option>
-            </select>
-          </label>
-        </div>
-        <menu>
-          <button value="cancel">Cancel</button>
-          <button value="default">Confirm</button>
-        </menu>
-      </form>
-    </dialog>
+  <body>
+    <main class="container-fluid">
+      <hgroup>
+        <h1>HTML5 Dialog API</h1>
+        <p>
+          The &lt;dialog&gt; HTML element represents a dialog box or other
+          interactive component, such as a dismissible alert, inspector, or
+          subwindow.
+        </p>
+      </hgroup>
+
+      <button>Show Dialog</button>
+
+      <dialog id="color-settings">
+        <article>
+          <header>
+            <button aria-label="Close" rel="prev"></button>
+            <h2>Confirm Your Membership</h2>
+          </header>
+          <p>
+            Thank you for signing up for a membership! Please review the
+            membership details below:
+          </p>
+          <ul>
+            <li>Membership: Individual</li>
+            <li>Price: $10</li>
+          </ul>
+          <footer>
+            <button class="secondary" value="cancel">Cancel</button>
+            <button value="default">Confirm</button>
+          </footer>
+        </article>
+      </dialog>
+    </main>
   </body>
 </html>
