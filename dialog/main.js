@@ -39,7 +39,8 @@ confirmButton.addEventListener('click', () => {
   dialog.close('confirmed')
 })
 
-dialog.addEventListener('close', () => {
+dialog.addEventListener('close', (event) => {
   toggleScrollbar()
+  console.log('Dialog event', event.target.returnValue)
   console.log('Dialog returned value', dialog.returnValue)
 })
