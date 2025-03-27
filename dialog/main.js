@@ -2,6 +2,14 @@
 
 const dialog = document.getElementById('color-settings')
 
+// prettier-ignore
+const [
+  showDialogButton,
+  closeButton,
+  cancelButton,
+  confirmButton
+] = document.querySelectorAll('button')
+
 const toggleScrollbar = (hide) => {
   if (!hide) {
     document.body.style.paddingRight = 0
@@ -13,14 +21,6 @@ const toggleScrollbar = (hide) => {
   document.body.style.paddingRight = scrollbarWidth + 'px'
   document.body.style.overflow = 'hidden'
 }
-
-// prettier-ignore
-const [
-  showDialogButton,
-  closeButton,
-  cancelButton,
-  confirmButton
-] = document.querySelectorAll('button')
 
 showDialogButton.addEventListener('click', () => {
   dialog.showModal()
