@@ -1,6 +1,7 @@
 'use strict'
 
 const dialog = document.getElementById('color-settings')
+const p = document.getElementById('returnedValue')
 
 // prettier-ignore
 const [
@@ -10,6 +11,7 @@ const [
   confirmButton
 ] = document.querySelectorAll('button')
 
+// this is necessary to avoid scrollbar flicker the content when the dialog is opened/closed
 const toggleScrollbar = (hide) => {
   if (!hide) {
     document.body.style.paddingRight = 0
@@ -43,4 +45,5 @@ dialog.addEventListener('close', (event) => {
   toggleScrollbar()
   console.log('Dialog event', event.target.returnValue)
   console.log('Dialog returned value', dialog.returnValue)
+  p.textContent = `The ${dialog.returnValue} button was clicked.`
 })
