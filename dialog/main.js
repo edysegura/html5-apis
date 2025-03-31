@@ -10,8 +10,9 @@ const [
 ] = document.querySelectorAll('button')
 
 // this is necessary to avoid scrollbar flicker the content when the dialog is opened/closed
-const toggleScrollbar = (hide) => {
-  if (!hide) {
+const toggleScrollbar = () => {
+  if (toggleScrollbar.isHidden) {
+    toggleScrollbar.isHidden = false
     document.body.style.paddingRight = 0
     document.body.style.overflow = 'auto'
     return
@@ -20,11 +21,12 @@ const toggleScrollbar = (hide) => {
     window.innerWidth - document.documentElement.clientWidth
   document.body.style.paddingRight = scrollbarWidth + 'px'
   document.body.style.overflow = 'hidden'
+  toggleScrollbar.isHidden = true
 }
 
 showDialogButton.addEventListener('click', () => {
   dialog.showModal()
-  toggleScrollbar(true)
+  toggleScrollbar()
 })
 
 const buttons = [
