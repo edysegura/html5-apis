@@ -1,5 +1,3 @@
-'use strict'
-
 const dialog = document.getElementById('color-settings')
 const p = document.getElementById('returnedValue')
 
@@ -29,21 +27,20 @@ showDialogButton.addEventListener('click', () => {
   toggleScrollbar(true)
 })
 
-closeButton.addEventListener('click', () => {
-  dialog.close('closed')
-})
+const buttons = [
+  { button: closeButton, value: 'closed' },
+  { button: cancelButton, value: 'cancelled' },
+  { button: confirmButton, value: 'confirmed' },
+]
 
-cancelButton.addEventListener('click', () => {
-  dialog.close('cancelled')
-})
-
-confirmButton.addEventListener('click', () => {
-  dialog.close('confirmed')
+buttons.forEach(({ button, value }) => {
+  button.addEventListener('click', () => {
+    dialog.close(value)
+  })
 })
 
 dialog.addEventListener('close', (event) => {
   toggleScrollbar()
   console.log('Dialog event', event.target.returnValue)
-  console.log('Dialog returned value', dialog.returnValue)
-  p.textContent = `The ${dialog.returnValue} button was clicked.`
+  p.textContent = `The ${dialog.returnValue} event was trigged.`
 })
