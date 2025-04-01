@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  padding: 24px 16px;
+
+  /* Layout */
+  --dark-text: #212121;
+  --medium-text: #666666;
+  --light-text: #e0e0e0;
+  --white-text: #ffffff;
+  --medium-background: #f7f7f7;
+  --white-background: #ffffff;
+  --wireframe: #b8b8b8;
+
+  /* Pokémon type colors */
+  --fire: #f57d31;
+  --grass: #74cb48;
+  --water: #6493eb;
+  --bug: #a7b723;
+  --electric: #f9cf30;
+  --ghost: #70559b;
+  --normal: #aaa67f;
+  --psychic: #fb5584;
+  --steel: #b7b9d0;
+  --poison: #a43e9e;
+  --ground: #dec16b;
+  --rock: #b69e31;
+  --ice: #9ad6df;
+  --dark: #75574c;
+  --dragon: #7037ff;
+  --flying: #a891ec;
+  --fighting: #c12239;
+  --fairy: #e69eac;
+
+  background-color: var(--medium-background);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+select,
+button {
+  background: var(--white-background);
+  border: 1px solid var(--light-text);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+button {
+  background: none;
+}
+
+.header-upper-part {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-logo {
+  width: 62px;
+}
+
+.header-logo > img {
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+  object-fit: cover;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.header-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 62px;
+}
+
+.header-button > img {
+  width: 15px;
+  height: 50%;
+}
+
+.header-button > img:hover {
+  cursor: pointer;
+}
+
+.header-lower-part {
+  position: relative;
+}
+
+.header-lower-part > img {
+  position: absolute;
+  top: 32%;
+  left: 2%;
+}
+
+.header-lower-part > input {
+  width: 100%;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 16px;
+}
+
+a {
+  all: unset;
+}
+
+.card-wrapper {
+  width: 104px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-wrapper:hover {
+  cursor: pointer;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 104px;
+  height: 88px;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid var(--normal);
+  padding: 4px 8px;
+  background-color: var(--white-background);
+}
+
+.card-id {
+  font-size: 8px;
+  font-weight: 400;
+  text-align: right;
+  color: var(--normal);
+}
+
+.card-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-image > img {
+  width: 72px;
+  height: 72px;
+}
+
+.card-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 24px;
+  background-color: var(--normal);
+  border-radius: 0 0 8px 8px;
+  color: var(--white-text);
+  font-size: 10px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.up {
+  transform: rotate(180deg);
+}
+
+.down {
+  transform: rotate(0deg);
+}
+
+.search-box {
+  display: flex;
+  flex-direction: row;
+  padding: 4px 8px;
+  gap: 16px;
+  width: 328px;
+  height: 24px;
+  padding-left: 20px;
+}
+
+.search-box:placeholder-shown {
+  text-align: center;
+}
