@@ -1,4 +1,4 @@
-import Dexie from 'https://cdn.jsdelivr.net/npm/dexie@3.2.3/+esm'
+import Dexie from 'https://cdn.jsdelivr.net/npm/dexie@4.0.11/+esm'
 
 const db = new Dexie('pokemonDB')
 
