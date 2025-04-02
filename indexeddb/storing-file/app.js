@@ -1,44 +1,44 @@
-import Dexie from "https://cdn.jsdelivr.net/npm/dexie@3.0.3/dist/dexie.mjs";
+import Dexie from 'https://cdn.jsdelivr.net/npm/dexie@4.0.11/+esm'
 
-const db = new Dexie("pokemonDB");
+const db = new Dexie('pokemonDB')
 
 db.version(1).stores({
-  pokemon: "++id,name",
-});
+  pokemon: '++id,name',
+})
 
-db.on("populate", async () => {
+db.on('populate', async () => {
   await db.pokemon.bulkPut([
     {
-      name: "Bulbasaur",
+      name: 'Bulbasaur',
       picture: await downloadImage(buildUrl(1)),
     },
     {
-      name: "Charmander",
+      name: 'Charmander',
       picture: await downloadImage(buildUrl(4)),
     },
     {
-      name: "Squirtle",
+      name: 'Squirtle',
       picture: await downloadImage(buildUrl(7)),
     },
     {
-      name: "Pikachu",
+      name: 'Pikachu',
       picture: await downloadImage(buildUrl(25)),
     },
-  ]);
-  retrieveData();
-});
+  ])
+  retrieveData()
+})
 
-db.open();
+db.open()
 
 function buildUrl(pokeNumber) {
-  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeNumber}.png`;
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeNumber}.png`
 }
 
 function byChar(char) {
   return function (poke) {
-    console.log(poke.name);
-    return poke.name.includes(char);
-  };
+    console.log(poke.name)
+    return poke.name.includes(char)
+  }
 }
 
 async function retrieveData() {
@@ -46,12 +46,12 @@ async function retrieveData() {
     // .where("name")
     // .startsWithIgnoreCase("c")
     // .filter(byChar("a"))
-    .toArray();
+    .toArray()
 
-  const section = document.querySelector("section");
-  const pokeHTML = pokemonList.map(toHTML).join("");
-  section.innerHTML = pokeHTML;
-  document.body.appendChild(section);
+  const section = document.querySelector('section')
+  const pokeHTML = pokemonList.map(toHTML).join('')
+  section.innerHTML = pokeHTML
+  document.body.appendChild(section)
 
   function toHTML(poke) {
     return `
@@ -60,7 +60,7 @@ async function retrieveData() {
             <div class="card-id" style="color: var(--grass);">${poke.id}</div>
             <div class="card-image">
               <img alt="${poke.name}" src="${URL.createObjectURL(
-      poke.picture
+      poke.picture,
     )}">
             </div>
           </div>
@@ -68,39 +68,39 @@ async function retrieveData() {
             ${poke.name}
           </div>
         </a>
-    `;
+    `
   }
 }
-retrieveData();
+retrieveData()
 
 async function downloadImage(imageUrl) {
-  const response = await fetch(imageUrl);
-  const blob = await response.blob();
-  return blob;
+  const response = await fetch(imageUrl)
+  const blob = await response.blob()
+  return blob
 }
 
 async function saveFormData(event) {
-  event.preventDefault();
-  const form = event.target;
+  event.preventDefault()
+  const form = event.target
   await saveOnDatabase({
     name: form.name.value,
     pokeNumber: form.pokeNumber.value,
-  });
-  retrieveData();
-  form.reset();
-  form.name.focus();
-  return false;
+  })
+  retrieveData()
+  form.reset()
+  form.name.focus()
+  return false
 }
 
 async function saveOnDatabase({ name, pokeNumber }) {
-  const pokemon = await db.pokemon.where("name").equals(name).toArray();
+  const pokemon = await db.pokemon.where('name').equals(name).toArray()
   if (pokemon.length === 0) {
     await db.pokemon.add({
       name,
       picture: await downloadImage(buildUrl(pokeNumber)),
-    });
+    })
   }
 }
 
-const form = document.querySelector("form");
-form.addEventListener("submit", saveFormData);
+const form = document.querySelector('form')
+form.addEventListener('submit', saveFormData)
