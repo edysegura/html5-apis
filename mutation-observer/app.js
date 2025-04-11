@@ -1,15 +1,29 @@
 const button = document.querySelector('button')
 const p = document.querySelector('p')
 
-const observer = new MutationObserver((mutations) => {
+const firstObserver = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
     if (mutation.type === 'attributes') {
-      console.log(`The ${mutation.attributeName} attribute was modified.`)
+      console.log(
+        `The ${
+          mutation.attributeName
+        } attribute was modified to ${mutation.target.getAttribute(
+          mutation.attributeName,
+        )}.`,
+      )
     }
   })
 })
 
-observer.observe(p, {
+const secondObserver = new MutationObserver(() => {
+  mutations.forEach((mutation) => {
+    if (mutation.type === 'childList') {
+      console.log('A child node has been added or removed.')
+    }
+  })
+})
+
+firstObserver.observe(p, {
   attributes: true,
 })
 
