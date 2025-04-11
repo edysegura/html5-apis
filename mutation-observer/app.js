@@ -15,19 +15,21 @@ const firstObserver = new MutationObserver((mutations) => {
   })
 })
 
-const secondObserver = new MutationObserver(() => {
-  mutations.forEach((mutation) => {
-    if (mutation.type === 'childList') {
-      console.log('A child node has been added or removed.')
-    }
-  })
+const secondObserver = new MutationObserver((mutations) => {
+  console.log(`The attribute aria-hidden has been modified to ${p.ariaHidden}.`)
 })
 
 firstObserver.observe(p, {
   attributes: true,
 })
 
+secondObserver.observe(p, {
+  attributes: true,
+  attributeFilter: ['aria-hidden'],
+})
+
 button.addEventListener('click', () => {
   p.ariaHidden = !p.ariaHidden
+  p.title = p.ariaHidden === 'true' ? 'Testing ON' : 'Testing OFF'
   p.classList.toggle('hidden')
 })
