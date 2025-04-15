@@ -2,6 +2,11 @@ const button = document.querySelector('button')
 const p = document.querySelector('p')
 const textarea = document.querySelector('textarea')
 
+function logger(logMessage) {
+  console.log(logMessage)
+  textarea.value += `${logMessage}\n`
+}
+
 const firstObserver = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
     if (mutation.type === 'attributes') {
@@ -10,16 +15,14 @@ const firstObserver = new MutationObserver((mutations) => {
       } attribute was modified to ${mutation.target.getAttribute(
         mutation.attributeName,
       )}.`
-      console.log(logMessage)
-      textarea.value += `${logMessage}\n`
+      logger(logMessage)
     }
   })
 })
 
-const secondObserver = new MutationObserver((mutations) => {
+const secondObserver = new MutationObserver(() => {
   const logMessage = `[second-observer] The attribute aria-hidden has been modified to ${p.ariaHidden}.`
-  console.log(logMessage)
-  textarea.value += `${logMessage}\n`
+  logger(logMessage)
 })
 
 firstObserver.observe(p, {
