@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Logical Processors</title>
-    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
   </head>
   <body>
-    <p>This machine has <span>0</span> logical processors</p>
+    <main class="container">
+      <h1>HTML5 API - <code>navigator.hardwareConcurrency</code></h1>
+      <p>This machine has <mark>0</mark> logical processors</p>
+    </main>
   </body>
   <script>
-    const span = document.querySelector('span')
-    span.textContent = navigator.hardwareConcurrency
+    const mark = document.querySelector('mark')
+    mark.textContent = navigator.hardwareConcurrency
   </script>
 </html>
