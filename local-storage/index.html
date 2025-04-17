@@ -13,19 +13,25 @@
   <body>
     <main class="container">
       <h1>HTML5 LocalStorage API</h1>
-      <fieldset>
-        <legend>Insert Data</legend>
-        <form action="">
-          <input type="text" name="key" placeholder="Enter key..." required />
+      <form action="">
+        <fieldset class="grid">
+          <input
+            type="text"
+            name="key"
+            placeholder="Key"
+            aria-label="Key"
+            autocomplete="off"
+          />
           <input
             type="text"
             name="value"
-            placeholder="Enter value..."
-            required
+            placeholder="Value"
+            aria-label="Value"
+            autocomplete="off"
           />
-          <button>Insert</button>
-        </form>
-      </fieldset>
+          <input type="submit" value="Add" />
+        </fieldset>
+      </form>
       <fieldset>
         <legend>Local Storage</legend>
         <div id="lsValues"></div>
