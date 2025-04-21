@@ -25,12 +25,39 @@ class App {
 
   listLocalStorageValues() {
     const lsValues = document.getElementById('lsValues')
-    const toHtml = (key) => {
-      const value = localStorage.getItem(key)
-      return `<p>${key}: ${value}</p>`
+
+    if (Object.keys(localStorage).length === 0) {
+      lsValues.innerHTML = '<p>No items in localStorage</p>'
+      return
     }
-    const htmlOutput = Object.keys(localStorage).map(toHtml).join('')
-    lsValues.innerHTML = htmlOutput
+
+    const tableRows = Object.keys(localStorage)
+      .map((key) => {
+        const value = localStorage.getItem(key)
+        return `
+          <tr>
+            <td>${key}</td>
+            <td>${value}</td>
+          </tr>
+        `
+      })
+      .join('')
+
+    const table = `
+      <table role="grid">
+        <thead>
+          <tr>
+            <th scope="col">Key</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${tableRows}
+        </tbody>
+      </table>
+    `
+
+    lsValues.innerHTML = table
   }
 }
 
