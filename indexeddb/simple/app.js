@@ -3,7 +3,7 @@ import Dexie from 'https://cdn.jsdelivr.net/npm/dexie@4.0.11/+esm'
 const db = new Dexie('pokemonDB')
 
 db.version(1).stores({
-  pokemon: '++id,name,types',
+  pokemon: '++id,name,types,sprite',
 })
 
 db.on('populate', async () => {
@@ -20,6 +20,7 @@ db.on('populate', async () => {
       return {
         name: pokemon.name,
         types: detailData.types.map((t) => t.type.name),
+        sprite: detailData.sprites.front_default,
       }
     }),
   )
@@ -42,6 +43,9 @@ const tableRows = pokemon
   .map(
     (poke) => `
     <tr>
+      <td><img src="${poke.sprite}" alt="${
+      poke.name
+    }" width="96" height="96" /></td>
       <td>${poke.name}</td>
       <td>${poke.types ? poke.types.join(', ') : 'N/A'}</td>
     </tr>
