@@ -59,6 +59,7 @@ async function listPokemon(db) {
     <table role="grid">
       <thead>
         <tr>
+          <th scope="col">&nbsp;</th>
           <th scope="col">Name</th>
           <th scope="col">Types</th>
         </tr>
