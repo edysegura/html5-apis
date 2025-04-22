@@ -3,7 +3,7 @@ import Dexie from 'https://cdn.jsdelivr.net/npm/dexie@4.0.11/+esm'
 const db = new Dexie('pokemonDB')
 
 db.version(1).stores({
-  pokemon: '++id,name',
+  pokemon: '++id,name,types',
 })
 
 db.on('populate', async () => {
@@ -11,18 +11,56 @@ db.on('populate', async () => {
     'https://pokeapi.co/api/v2/pokemon?offset=0&limit=151',
   )
   const data = await response.json()
-  await db.pokemon.bulkPut(data.results)
+
+  // Fetch detailed data for each pokemon including types
+  const pokemonWithTypes = await Promise.all(
+    data.results.map(async (pokemon) => {
+      const detailResponse = await fetch(pokemon.url)
+      const detailData = await detailResponse.json()
+      return {
+        name: pokemon.name,
+        types: detailData.types.map((t) => t.type.name),
+      }
+    }),
+  )
+
+  await db.pokemon.bulkPut(pokemonWithTypes)
 })
 
 db.open()
 
 const pokemon = await db.pokemon
-  .where('id')
-  .between(1, 20)
-  .filter((poke) => /^b/.test(poke.name))
+  // .where('id')
+  // .between(1, 20)
+  // .filter((poke) => /^b/.test(poke.name))
   .toArray()
-
 console.table(pokemon)
 
-const pre = document.querySelector('pre')
-pre.textContent = JSON.stringify(pokemon, null, 2)
+// Create and display table
+const container = document.querySelector('main')
+const tableRows = pokemon
+  .map(
+    (poke) => `
+    <tr>
+      <td>${poke.name}</td>
+      <td>${poke.types ? poke.types.join(', ') : 'N/A'}</td>
+    </tr>
+  `,
+  )
+  .join('')
+
+const table = `
+  <table role="grid">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Types</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${tableRows}
+    </tbody>
+  </table>
+`
+
+container.insertAdjacentHTML('beforeend', table)
