@@ -2,42 +2,62 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>History API</title>
+    <title>History API Demo</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
   </head>
   <body>
-    <!-- reference: https://www.youtube.com/watch?v=4GqUAaLgpgs -->
-    <section>
-      <h1>History API</h1>
-      <p>Click on the links to see the history API in action.</p>
-      <p id="content">This is the default content.</p>
-    </section>
-    <ul>
-      <li>
-        <a href="page-1.html" data-content="Content for page 1">Page 1</a>
-      </li>
-      <li>
-        <a href="page-2.html" data-content="Content for page 2">Page 2</a>
-      </li>
-      <li>
-        <a href="about.html" data-content="This is the about page">About</a>
-      </li>
-    </ul>
-    <script>
-      const links = document.querySelectorAll('a')
-      const content = document.getElementById('content')
-      for (const link of links) {
-        link.addEventListener('click', (event) => {
-          event.preventDefault()
-          const link = event.target
-          history.pushState(link.dataset.content, null, link.href)
-        })
-      }
-      window.addEventListener('popstate', (event) => {
-        console.log(`location: ${document.location}, state: ${event.state}`)
-        content.innerHTML = event.state || 'This is the default content.'
-      })
-    </script>
+    <main class="container">
+      <article>
+        <header>
+          <h1>History API Demo</h1>
+          <p>
+            Click on the links below to see the History API in action. Try using
+            your browser's back and forward buttons!
+          </p>
+        </header>
+        <div class="grid">
+          <div>
+            <nav>
+              <ul>
+                <li>
+                  <a
+                    href="page-1.html"
+                    data-content="Content for page 1"
+                    role="button"
+                    >Page 1</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="page-2.html"
+                    data-content="Content for page 2"
+                    role="button"
+                    >Page 2</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="about.html"
+                    data-content="This is the about page"
+                    role="button"
+                    >About</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div>
+            <article id="content" aria-live="polite">
+              This is the default content.
+            </article>
+          </div>
+        </div>
+      </article>
+    </main>
+    <script src="main.js"></script>
   </body>
 </html>
