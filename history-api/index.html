@@ -8,6 +8,11 @@
   </head>
   <body>
     <!-- reference: https://www.youtube.com/watch?v=4GqUAaLgpgs -->
+    <section>
+      <h1>History API</h1>
+      <p>Click on the links to see the history API in action.</p>
+      <p id="content">This is the default content.</p>
+    </section>
     <ul>
       <li>
         <a href="page-1.html" data-content="Content for page 1">Page 1</a>
@@ -21,6 +26,7 @@
     </ul>
     <script>
       const links = document.querySelectorAll('a')
+      const content = document.getElementById('content')
       for (const link of links) {
         link.addEventListener('click', (event) => {
           event.preventDefault()
@@ -30,6 +36,7 @@
       }
       window.addEventListener('popstate', (event) => {
         console.log(`location: ${document.location}, state: ${event.state}`)
+        content.innerHTML = event.state || 'This is the default content.'
       })
     </script>
   </body>
