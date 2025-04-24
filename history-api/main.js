@@ -1,17 +1,33 @@
-const links = document.querySelectorAll('a')
-const content = document.getElementById('content')
+const contentElement = document.getElementById('content')
+const navigationLinks = document.querySelectorAll('a')
 
-for (const link of links) {
-  link.addEventListener('click', (event) => {
-    event.preventDefault()
-    const link = event.target
-    const newContent = link.dataset.content
-    history.pushState(newContent, null, link.href)
-    content.innerHTML = newContent
-  })
+navigationLinks.forEach((link) => {
+  link.addEventListener('click', handleNavigationClick)
+})
+
+window.addEventListener('popstate', handleHistoryNavigation)
+
+function handleNavigationClick(event) {
+  event.preventDefault()
+  const link = event.target
+  const newContent = link.dataset.content
+  if (!newContent) {
+    console.warn('No content provided for this link')
+    return
+  }
+  history.pushState(newContent, '', link.href)
+  updatePageContent(newContent)
 }
 
-window.addEventListener('popstate', (event) => {
-  console.log(`location: ${document.location}, state: ${event.state}`)
-  content.innerHTML = event.state || 'This is the default content.'
-})
+function updatePageContent(newContent) {
+  if (!contentElement) {
+    console.error('Content element not found')
+    return
+  }
+  contentElement.innerHTML = newContent || 'No content available'
+}
+
+function handleHistoryNavigation(event) {
+  const state = event.state
+  updatePageContent(state)
+}
