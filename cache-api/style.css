@@ -1,0 +1,36 @@
+main.container {
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #23272f; /* dark background */
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
+}
+
+button {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  background: #2d333b;
+  color: #f3f6fc;
+  border: 1px solid #444c56;
+}
+
+button:hover,
+button:focus {
+  background: #444c56;
+  color: #fff;
+}
+
+pre {
+  background: #181c22; /* very dark background */
+  color: #f3f6fc;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  min-height: 120px;
+  font-size: 1rem;
+  overflow-x: auto;
+  border: 1px solid #23272f;
+}
+
+h1 {
+  color: #f3f6fc;
+}
