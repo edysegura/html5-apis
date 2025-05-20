@@ -14,5 +14,4 @@ async function fetchPokemonData() {
   return data.results
 }
 
-fetchPokemonData()
-  .then(pokemons => pokemons.forEach(addToList))
+fetchPokemonData().then((pokemon) => pokemon.forEach(addToList))
