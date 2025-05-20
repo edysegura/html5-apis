@@ -2,18 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>HTML5 Custom Elements</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
   </head>
   <body>
-    <word-count text="Together we are better (please hover)" /></word-count>
-    <word-count text="Hadiru Iramboa"></word-count>
-    <word-count text="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></word-count>
+    <main class="container">
+      <h1>Word Counter & GitHub Profiles</h1>
+      <article>
+        <h2>Word Counter</h2>
+        <word-count text="Together we are better (please hover)" /></word-count>
+        <word-count text="Hadiru Iramboa"></word-count>
+        <word-count text="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></word-count>
+      </article>
 
-    <github-profile user="edysegura"></github-profile>
-    <github-profile user="fredllaranjo"></github-profile>
-    <github-profile user="caike08"></github-profile>
+      <article>
+        <h2>GitHub Profiles</h2>
+        <github-profile user="edysegura"></github-profile>
+        <github-profile user="fredllaranjo"></github-profile>
+        <github-profile user="caike08"></github-profile>
+        <github-profile user="theolm"></github-profile>
+      </article>
+    </main>
 
     <script src="js/app.js" type="module"></script>
   </body>
