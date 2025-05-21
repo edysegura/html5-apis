@@ -1,4 +1,4 @@
-const button = document.querySelector('button')
+const button = document.querySelector('[type="button"]')
 const input = document.querySelector('input')
 
 input.oninput = (event) => {
@@ -8,9 +8,9 @@ input.oninput = (event) => {
 button.addEventListener('click', async () => {
   const text = input.value
   await navigator.clipboard.writeText(text)
-  button.textContent = 'Copied!'
+  button.value = 'Copied!'
   setTimeout(() => {
-    button.textContent = 'Copy'
+    button.value = 'Copy'
   }, 2000)
   addToLog(`Content copied: ${text}`)
 })
