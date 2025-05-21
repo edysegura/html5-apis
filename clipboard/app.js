@@ -22,7 +22,9 @@ function addToLog(text) {
 
 document.addEventListener('copy', (event) => {
   console.log('Content copied', event)
-  addToLog('Content copied')
+  const text = window.getSelection().toString()
+  // const text = event.clipboardData.getData('text/plain')
+  addToLog(`Content copied: ${text}`)
 })
 
 document.addEventListener('paste', (event) => {
