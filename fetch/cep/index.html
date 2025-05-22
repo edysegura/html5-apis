@@ -13,18 +13,21 @@
   </head>
   <body>
     <main class="container">
-      <form action="">
-        <label for="cep">CEP</label>
-        <input
-          type="text"
-          id="cep"
-          name="cep"
-          placeholder="Type your CEP here!"
-          pattern="\d{5}-?\d{3}"
-          value="37537-138"
-          required
-        />
-        <button>Search</button>
+      <form>
+        <h1>Search for a CEP</h1>
+        <fieldset role="group">
+          <input
+            type="text"
+            id="cep"
+            name="cep"
+            placeholder="Type your CEP here!"
+            pattern="\d{5}-?\d{3}"
+            value="37537-138"
+            required
+            autofocus
+          />
+          <input type="submit" value="Search" />
+        </fieldset>
       </form>
       <hr />
       <section>
