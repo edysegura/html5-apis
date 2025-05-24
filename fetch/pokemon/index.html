@@ -4,12 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>HTML5 Fetch API</title>
+    <title>Pokemon Database</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
   </head>
   <body>
-    <h1>Pokemon</h1>
-    <ol></ol>
+    <main class="container">
+      <h1>Pokemon Database</h1>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Sprite</th>
+            <th scope="col">Name</th>
+            <th scope="col">Types</th>
+          </tr>
+        </thead>
+        <tbody id="pokemon-list"></tbody>
+      </table>
+    </main>
   </body>
 </html>

@@ -1,4 +1,22 @@
-li {
+.pokemon-name {
   text-transform: capitalize;
-  list-style-type: decimal-leading-zero;
+}
+
+.pokemon-type {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin: 0.1rem;
+  color: white;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.pokemon-img {
+  width: 96px;
+  height: 96px;
+}
+
+tbody tr {
+  vertical-align: middle;
 }
