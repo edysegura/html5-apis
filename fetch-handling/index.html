@@ -1,19 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Handling fetch bad request</title>
+    <title>HTTP Response Handler</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
   </head>
   <body>
-    <button onclick="performGoodRequest(200)">HTTP 200</button>
-    <button onclick="performGoodRequest(201)">HTTP 201</button>
-    <button onclick="performBadRequest(400)">HTTP 400</button>
-    <button onclick="performBadRequest(401)">HTTP 401</button>
-    <button onclick="performBadRequest(403)">HTTP 403</button>
-    <button onclick="performBadRequest(404)">HTTP 404</button>
-    <button onclick="performBadRequest(500)">HTTP 500</button>
-    <p></p>
+    <main class="container">
+      <article>
+        <header>
+          <h1>HTTP Response Testing</h1>
+          <p>
+            Test different HTTP response scenarios by clicking the buttons
+            below.
+          </p>
+        </header>
+
+        <section>
+          <h2>Successful Responses</h2>
+          <div class="grid">
+            <button onclick="performGoodRequest(200)" class="success">
+              HTTP 200 OK
+            </button>
+            <button onclick="performGoodRequest(201)" class="success">
+              HTTP 201 Created
+            </button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Client Errors</h2>
+          <div class="grid">
+            <button onclick="performBadRequest(400)" class="error">
+              HTTP 400 Bad Request
+            </button>
+            <button onclick="performBadRequest(401)" class="error">
+              HTTP 401 Unauthorized
+            </button>
+            <button onclick="performBadRequest(403)" class="error">
+              HTTP 403 Forbidden
+            </button>
+            <button onclick="performBadRequest(404)" class="error">
+              HTTP 404 Not Found
+            </button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Server Errors</h2>
+          <div class="grid">
+            <button onclick="performBadRequest(500)" class="error">
+              HTTP 500 Server Error
+            </button>
+          </div>
+        </section>
+
+        <footer>
+          <p id="result" aria-live="polite"></p>
+        </footer>
+      </article>
+    </main>
   </body>
 </html>

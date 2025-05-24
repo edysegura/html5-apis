@@ -1,0 +1,42 @@
+/* Custom styles on top of PicoCSS */
+:root {
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+}
+
+article {
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+.grid {
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+button.success {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+}
+
+button.error {
+  background-color: var(--error-color);
+  border-color: var(--error-color);
+}
+
+#result {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--background-color);
+  border: 1px solid var(--muted-border-color);
+}
+
+section {
+  margin: 2rem 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}

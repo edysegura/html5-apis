@@ -29,6 +29,18 @@ async function performBadRequest(httpCode) {
 }
 
 function showMessage(message) {
-  const output = document.querySelector('p')
+  const output = document.querySelector('#result')
   output.textContent = message
+
+  // Add visual feedback
+  output.style.backgroundColor = message.includes('error')
+    ? 'var(--error-color)'
+    : 'var(--success-color)'
+  output.style.color = 'white'
+
+  // Reset the background color after 2 seconds
+  setTimeout(() => {
+    output.style.backgroundColor = 'var(--background-color)'
+    output.style.color = 'var(--color)'
+  }, 2000)
 }
