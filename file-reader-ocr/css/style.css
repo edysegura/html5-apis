@@ -6,3 +6,7 @@ img,
 .ocr-result {
   max-width: 300px;
 }
+
+article {
+  margin-top: 1rem;
+}
