@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
+    <script src="app.js" defer></script>
   </head>
   <body>
     <main class="container">
@@ -17,7 +18,7 @@
           <h1>Number Only Input</h1>
           <p>This input field only accepts numeric values</p>
         </header>
-        <form>
+        <form onsubmit="event.preventDefault();">
           <label for="numericInput">Enter a number:</label>
           <input
             id="numericInput"
@@ -30,6 +31,5 @@
         </form>
       </article>
     </main>
-    <script src="app.js"></script>
   </body>
 </html>
