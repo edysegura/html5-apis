@@ -5,35 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Number Only</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
   </head>
   <body>
-    <input
-      type="text"
-      inputmode="numeric"
-      pattern="[0-9]+"
-      placeholder="Enter numbers only"
-    />
-    <script>
-      const numericInputs = document.querySelectorAll("[inputmode='numeric']")
-
-      numericInputs.forEach((input) => {
-        validateInput(input)
-      })
-
-      function validateInput(inputElement) {
-        inputElement.addEventListener('beforeinput', function (event) {
-          let beforeValue = inputElement.value
-          event.target.addEventListener(
-            'input',
-            function () {
-              if (inputElement.validity.patternMismatch) {
-                inputElement.value = beforeValue
-              }
-            },
-            { once: true },
-          )
-        })
-      }
-    </script>
+    <main class="container">
+      <article>
+        <header>
+          <h1>Number Only Input</h1>
+          <p>This input field only accepts numeric values</p>
+        </header>
+        <form>
+          <label for="numericInput">Enter a number:</label>
+          <input
+            id="numericInput"
+            type="text"
+            inputmode="numeric"
+            pattern="[0-9]+"
+            placeholder="Enter numbers only"
+            required
+          />
+        </form>
+      </article>
+    </main>
+    <script src="app.js"></script>
   </body>
 </html>
