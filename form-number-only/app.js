@@ -16,7 +16,6 @@ function setupNumericInput(inputElement) {
       if (!validateNumericInput(inputElement.value)) {
         inputElement.value = beforeValue
         feedback.showError()
-        setTimeout(() => feedback.hideError(), 2000)
       }
     }
     event.target.addEventListener('input', handleInvalidInput, { once: true })
