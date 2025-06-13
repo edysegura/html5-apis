@@ -10,23 +10,62 @@
       integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
       crossorigin=""
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
-    <script src="index.js" type="module" defer></script>
+    <script src="app.js" type="module" defer></script>
   </head>
   <body>
-    <ul>
-      <li>Latitude: <span id="lat"></span></li>
-      <li>Longitude: <span id="long"></span></li>
-    </ul>
-    <div>
-      <button id="srs" data-lat="-22.249519" data-long="-45.706081">
-        Santa Rita do Sapucai
-      </button>
-      <button id="pa" data-lat="-22.234171" data-long="-45.933201">
-        Pouso Alegre
-      </button>
-    </div>
-    <p><a href="https://leafletjs.com/">Open Street Maps with Leaflet.js</a></p>
-    <div id="open-map"></div>
+    <main class="container">
+      <article>
+        <header>
+          <h1>Geolocation API Demo</h1>
+          <p>
+            Explore locations on an interactive map using HTML5 Geolocation API
+            and Leaflet.js
+          </p>
+        </header>
+
+        <section>
+          <div class="grid">
+            <div>
+              <h2>Current Coordinates</h2>
+              <ul>
+                <li>
+                  Latitude: <strong><span id="lat"></span></strong>
+                </li>
+                <li>
+                  Longitude: <strong><span id="long"></span></strong>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h2>Preset Locations</h2>
+              <div class="grid">
+                <button id="srs" data-lat="-22.249519" data-long="-45.706081">
+                  Santa Rita do Sapucai
+                </button>
+                <button id="pa" data-lat="-22.234171" data-long="-45.933201">
+                  Pouso Alegre
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <h2>Map View</h2>
+          <div id="open-map"></div>
+          <footer>
+            <p>
+              <small
+                >Powered by <a href="https://leafletjs.com/">Leaflet.js</a> for
+                map visualization</small
+              >
+            </p>
+          </footer>
+        </section>
+      </article>
+    </main>
   </body>
 </html>
