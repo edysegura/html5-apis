@@ -1,9 +1,57 @@
+/* Custom styles on top of PicoCSS */
+.preview-container {
+  margin: 1rem 0;
+  border: 2px dashed var(--secondary);
+  border-radius: var(--border-radius);
+  background: var(--secondary-background);
+  transition: all 0.2s ease;
+}
+
+.preview-container:hover {
+  border-color: var(--primary);
+  background: var(--primary-background);
+}
+
 .preview-image {
-  margin-top: 10px;
+  position: relative;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 
-img,
-.ocr-result {
-  max-width: 300px;
+.placeholder {
+  text-align: center;
+  color: var(--secondary);
 }
 
+.placeholder svg {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1rem;
+}
+
+.placeholder p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+img {
+  max-width: 100%;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-box-shadow);
+}
+
+pre {
+  max-height: 300px;
+  overflow-y: auto;
+  margin: 0;
+  background: var(--secondary-background);
+}
+
+#map {
+  height: 300px;
+  border-radius: var(--border-radius);
+  margin: 1rem 0;
+}
