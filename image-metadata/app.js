@@ -5,7 +5,7 @@ const inputFile = document.querySelector('input')
 const preview = document.querySelector('img')
 const placeholder = document.querySelector('.placeholder')
 
-function showImagePreview(file) {
+async function showImagePreview(file) {
   const fileReader = new FileReader()
   fileReader.addEventListener('loadend', (event) => {
     preview.src = event.target.result
