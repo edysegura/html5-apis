@@ -29,7 +29,7 @@ inputFile.addEventListener('change', (event) => {
 })
 
 async function showImageMetadata(imageUrl) {
-  // https://mutiny.cz/exifr/
+  // https://github.com/MikeKovarik/exifr
   const output = await exifr.parse(imageUrl)
   const pre = document.querySelector('pre')
   pre.textContent = JSON.stringify(output, null, 2)
