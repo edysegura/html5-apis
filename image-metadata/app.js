@@ -33,7 +33,7 @@ async function showImageMetadata(imageUrl) {
   const output = await exifr.parse(imageUrl)
   const pre = document.querySelector('pre')
   pre.textContent = JSON.stringify(output, null, 2)
-  if (output) {
+  if (output.latitude && output.longitude) {
     showMap(output)
   }
 }
