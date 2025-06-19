@@ -1,8 +1,8 @@
 import Dexie from 'https://cdn.jsdelivr.net/npm/dexie@4.0.11/+esm'
 
-const db = new Dexie('pokemonDB')
+const db = new Dexie('pokemonDB-files')
 
-db.version(1).stores({
+db.version(2).stores({
   pokemon: '++id,name',
 })
 
@@ -28,7 +28,7 @@ db.on('populate', async () => {
   retrieveData()
 })
 
-db.open()
+await db.open()
 
 function buildUrl(pokeNumber) {
   return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeNumber}.png`
