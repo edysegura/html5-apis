@@ -7,17 +7,47 @@
     <title>HTML5 Intl API</title>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
-    <script src="main.js" defer></script>
+    <script src="app.js" defer></script>
   </head>
   <body>
-    <div class="container">
-      <h1>HTML5 Intl API</h1>
-      <ul>
-        <li>en-US: <span></span></li>
-        <li>pt-BR: <span></span></li>
-      </ul>
-    </div>
+    <main class="container">
+      <nav>
+        <ul>
+          <li><strong>HTML5 Internationalization (Intl) API Demo</strong></li>
+        </ul>
+      </nav>
+      <section class="grid">
+        <article class="card">
+          <header>
+            <h2>Date Formatting Example</h2>
+            <p>
+              This example uses the
+              <code>Intl.DateTimeFormat</code> API to format a date in different
+              locales.
+            </p>
+          </header>
+          <table role="grid">
+            <thead>
+              <tr>
+                <th>Locale</th>
+                <th>Formatted Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>en-US</td>
+                <td><span id="en-us-date"></span></td>
+              </tr>
+              <tr>
+                <td>pt-BR</td>
+                <td><span id="pt-br-date"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+      </section>
+    </main>
   </body>
 </html>
