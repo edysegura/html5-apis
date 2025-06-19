@@ -7,14 +7,23 @@
     <title>Browser languages</title>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
-    <script src="main.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.1/css/flag-icons.min.css"
+    />
+    <script src="app.js" defer></script>
   </head>
   <body>
-    <div class="container">
-      <h1>Browser Languages Settings</h1>
-      <ol></ol>
-    </div>
+    <main class="container">
+      <section class="card" style="max-width: 500px; margin: 2rem auto">
+        <h1 style="text-align: center">🌐 Browser Languages</h1>
+        <p style="text-align: center">
+          Your browser supports the following languages:
+        </p>
+        <ol id="languages-list" style="font-size: 1.2em"></ol>
+      </section>
+    </main>
   </body>
 </html>
