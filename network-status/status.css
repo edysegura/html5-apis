@@ -1,0 +1,26 @@
+/* Custom styles for network status indicator */
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+.status-online {
+  background: var(--pico-color-green-100, #e6f9ed);
+  color: var(--pico-color-green-700, #217a3c);
+  border: 1px solid var(--pico-color-green-400, #7be2a7);
+}
+.status-offline {
+  background: var(--pico-color-red-100, #ffeaea);
+  color: var(--pico-color-red-700, #a12a2a);
+  border: 1px solid var(--pico-color-red-400, #ffb3b3);
+}
+.status-indicator svg {
+  width: 1.25em;
+  height: 1.25em;
+  vertical-align: middle;
+}

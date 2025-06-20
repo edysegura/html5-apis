@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Network Status</title>
-</head>
-<body>
-  <h1>Network Status</h1>
-  <p>At the moment please look at console log!</p>
-  <script src="js/index.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Network Status</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.1.1/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="status.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Network Status</h1>
+      <div
+        id="status-indicator"
+        class="status-indicator"
+        aria-live="polite"
+        role="status"
+      >
+        <!-- Status will be injected here -->
+      </div>
+      <p>This page will show if you are online or offline.</p>
+    </main>
+    <script src="js/index.js"></script>
+  </body>
 </html>
