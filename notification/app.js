@@ -2,10 +2,30 @@
 
 const [enableButton, notificationButton] = document.querySelectorAll('button')
 
+function updatePermissionStatus() {
+  const statusDiv = document.getElementById('permission-status')
+  if (!statusDiv) return
+  let status = Notification.permission
+  let color = ''
+  switch (status) {
+    case 'granted':
+      color = 'var(--pico-success)'
+      break
+    case 'denied':
+      color = 'var(--pico-danger)'
+      break
+    default:
+      color = 'var(--pico-muted-color)'
+  }
+  statusDiv.textContent = `Notification permission: ${status}`
+  statusDiv.style.color = color
+}
+
 function enableNotification() {
-  Notification.requestPermission().then((permission) =>
-    console.log('Notification permission: ' + permission),
-  )
+  Notification.requestPermission().then((permission) => {
+    updatePermissionStatus()
+    console.log('Notification permission: ' + permission)
+  })
 }
 
 function showNotification() {
@@ -20,3 +40,4 @@ function showNotification() {
 
 enableButton.addEventListener('click', () => enableNotification())
 notificationButton.addEventListener('click', () => showNotification())
+updatePermissionStatus()
