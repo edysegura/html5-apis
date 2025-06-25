@@ -11,6 +11,7 @@ const data = await response.json()
 console.log('Response: ', data)
 console.log('QueryString: ', new URLSearchParams(formData).toString())
 
+// how to run this code:
 // node formData.js
 // bun formData.js
 // deno --allow-net formData.js
