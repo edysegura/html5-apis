@@ -1,5 +1,4 @@
 class App {
-
   constructor() {
     this.registerServiceWorker()
   }
@@ -10,12 +9,10 @@ class App {
 
       const defaultMessage = 'Service Worker registration'
       const success = () => console.log(`${defaultMessage} successful`)
-      const failure = error => console.log(`${defaultMessage} failed: `, error)
+      const failure = (error) =>
+        console.log(`${defaultMessage} failed: `, error)
 
-      navigator.serviceWorker
-        .register('./sw.js')
-        .then(success)
-        .catch(failure)
+      navigator.serviceWorker.register('./sw.js').then(success).catch(failure)
     }
   }
 
@@ -26,4 +23,10 @@ class App {
   }
 }
 
-new App()
+const app = new App()
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('fetch-image-btn').addEventListener('click', () => {
+    app.fetchImage()
+  })
+})

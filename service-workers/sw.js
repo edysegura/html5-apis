@@ -1,9 +1,6 @@
-const cacheName = 'v1'
+const cacheName = 'v2'
 
-const appAssets = [
-  './',
-  './index.html'
-]
+const appAssets = ['./', './index.html']
 
 async function precache() {
   const cache = await caches.open(cacheName)
@@ -34,10 +31,10 @@ async function fetchFromCacheWhenAvailable(request) {
   return doCache(request)
 }
 
-self.addEventListener('install', event => {
+self.addEventListener('install', (event) => {
   event.waitUntil(precache().then(() => self.skipWaiting()))
 })
 
-self.addEventListener('fetch', event => {
+self.addEventListener('fetch', (event) => {
   event.respondWith(fetchFromCacheWhenAvailable(event.request))
 })
