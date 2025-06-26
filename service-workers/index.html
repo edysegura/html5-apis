@@ -5,11 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Service Workers</title>
+    <!-- PicoCSS v2 CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
     <script src="app.js" defer></script>
   </head>
   <body>
-    <img src="https://picsum.photos/id/238/250/250" />
-    <input type="number" id="image-id" value="500" />
-    <button id="fetch-image-btn">OK</button>
+    <main class="container" style="max-width: 400px; margin: 3rem auto">
+      <article>
+        <header>
+          <h1>Service Worker Image Fetcher</h1>
+        </header>
+        <img
+          src="https://picsum.photos/id/238/250/250"
+          id="main-image"
+          style="display: block; margin: 0 auto 1rem; border-radius: 0.5rem"
+        />
+        <form
+          onsubmit="return false;"
+          style="
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <input
+            type="number"
+            id="image-id"
+            value="500"
+            min="1"
+            max="1084"
+            placeholder="Image ID"
+            style="width: 6rem"
+          />
+          <button id="fetch-image-btn" type="submit">OK</button>
+        </form>
+      </article>
+    </main>
   </body>
 </html>
