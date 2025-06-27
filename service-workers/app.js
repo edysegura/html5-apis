@@ -16,6 +16,13 @@ class App {
     }
   }
 
+  setupButtons() {
+    const fetchImageBtn = document.getElementById('fetch-image-btn')
+    fetchImageBtn.addEventListener('click', () => {
+      this.fetchImage()
+    })
+  }
+
   fetchImage() {
     const imageId = document.getElementById('image-id').value
     const image = document.querySelector('img')
@@ -24,9 +31,3 @@ class App {
 }
 
 const app = new App()
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('fetch-image-btn').addEventListener('click', () => {
-    app.fetchImage()
-  })
-})
