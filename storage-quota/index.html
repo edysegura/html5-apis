@@ -5,12 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Storage Quota</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
     <script src="app.js" defer></script>
   </head>
   <body>
-    <h1>Storage Quote</h1>
-    <p>Usage: <span id="usage">0</span> MB</p>
-    <p>Quota: <span id="quota">0</span> MB</p>
-    <p>Percent: <span id="percent">0%</span></p>
+    <main class="container" style="max-width: 400px; margin: 3rem auto">
+      <article>
+        <header>
+          <h1>Storage Quota</h1>
+          <p>Check your browser's storage usage and quota.</p>
+        </header>
+        <section>
+          <dl>
+            <dt>Usage</dt>
+            <dd>
+              <strong><span id="usage">0</span> MB</strong>
+            </dd>
+            <dt>Quota</dt>
+            <dd>
+              <strong><span id="quota">0</span> MB</strong>
+            </dd>
+            <dt>Percent Used</dt>
+            <dd>
+              <span id="percent">0%</span>
+            </dd>
+          </dl>
+        </section>
+        <footer>
+          <small style="color: var(--pico-muted-color)"
+            >Powered by
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/StorageManager/estimate"
+              target="_blank"
+              >StorageManager API</a
+            ></small
+          >
+        </footer>
+      </article>
+    </main>
   </body>
 </html>
