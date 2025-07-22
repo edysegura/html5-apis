@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>URL API</title>
-</head>
-<body>
-  <input type="url"
-    style="width: 80%;"
-    placeholder="https://example.com/?q=Better%20Web&page=2"
-    value="https://example.com/?q=Better%20Web&page=2">
-  <button>Process URL</button>
-  <p>Look into console.log()!</p>
-  <pre></pre>
-  <img src="url.jpg" alt="URL schema"  style="width: 600px;">
-  <script src="index.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL API</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <article>
+        <header>
+          <h1>URL API Explorer</h1>
+          <p>Explore and analyze URL parameters with the URL API</p>
+        </header>
+
+        <div class="grid">
+          <input
+            type="url"
+            placeholder="https://example.com/?q=Better%20Web&page=2"
+            value="https://example.com/?q=Better%20Web&page=2"
+            aria-label="URL to process"
+          />
+          <button>Process URL</button>
+        </div>
+
+        <h2>URL Parameters Result</h2>
+        <pre aria-label="Query parameters result"></pre>
+      </article>
+    </main>
+    <script src="index.js"></script>
+  </body>
 </html>
