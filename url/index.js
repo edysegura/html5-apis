@@ -1,20 +1,14 @@
-'use strict'
+const form = document.querySelector('form')
+const input = form.querySelector('input[type="url"]')
+const pre = document.querySelector('pre')
 
-let input = document.querySelector('input')
-let button = document.querySelector('button')
-let pre = document.querySelector('pre')
+function processUrl(event) {
+  event.preventDefault()
 
-function processUrl() {
-  let url = new URL(input.value)
-  let queryParams = {}
-
-  console.debug(url)
-
-  for (const [key, value] of url.searchParams.entries()) {
-    queryParams[key] = value
-  }
+  const url = new URL(form.url.value)
+  const queryParams = Object.fromEntries(url.searchParams.entries())
 
   pre.textContent = JSON.stringify(queryParams, null, 2)
 }
 
-button.addEventListener('click', processUrl)
+form.addEventListener('submit', processUrl)

@@ -17,15 +17,18 @@
           <p>Explore and analyze URL parameters with the URL API</p>
         </header>
 
-        <div class="grid">
-          <input
-            type="url"
-            placeholder="https://example.com/?q=Better%20Web&page=2"
-            value="https://example.com/?q=Better%20Web&page=2"
-            aria-label="URL to process"
-          />
-          <button>Process URL</button>
-        </div>
+        <form>
+          <fieldset role="group">
+            <input
+              type="url"
+              name="url"
+              placeholder="https://example.com/?q=Better%20Web&page=2"
+              value="https://example.com/?q=Better%20Web&page=2"
+              aria-label="URL to process"
+            />
+            <input type="submit" value="Parse URL" />
+          </fieldset>
+        </form>
 
         <h2>URL Parameters Result</h2>
         <pre aria-label="Query parameters result"></pre>
