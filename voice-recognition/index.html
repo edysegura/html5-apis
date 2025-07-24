@@ -5,11 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Voice Recognition</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
   </head>
   <body>
-    <p id="output"></p>
-    <button id="start">Start Recognition</button>
-    <button id="stop" disabled>Stop Recognition</button>
+    <main class="container">
+      <hgroup>
+        <h1>Voice Recognition</h1>
+        <h2>Speak in Portuguese and see the text appear!</h2>
+      </hgroup>
+      <article>
+        <p id="output" aria-live="polite">Your speech will appear here...</p>
+        <div class="button-group">
+          <button id="start" class="primary">Start Recognition</button>
+          <button id="stop" class="secondary" disabled>Stop Recognition</button>
+        </div>
+      </article>
+    </main>
   </body>
 </html>

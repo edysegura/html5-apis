@@ -1,0 +1,17 @@
+main {
+  padding: 1rem;
+}
+
+#output {
+  min-height: 100px;
+  padding: 1rem;
+  margin: 1rem 0;
+  background: var(--card-background-color);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--card-border-color);
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+}
