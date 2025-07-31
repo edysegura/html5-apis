@@ -4,12 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Memory Trick</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
     <script src="index.js" defer></script>
   </head>
   <body>
-    <h1>How to keep data on memory</h1>
-    <input type="text" id="data" placeholder="Type your data here!" />
-    <button>Keep on memory</button>
-    <a href="page-1.html">See data in memory</a>
+    <main class="container">
+      <article>
+        <header>
+          <h1>How to keep data on memory</h1>
+        </header>
+        <div class="grid">
+          <div>
+            <input type="text" id="data" placeholder="Type your data here!" />
+          </div>
+          <div>
+            <button>Keep on memory</button>
+          </div>
+        </div>
+        <footer>
+          <a href="page-1.html" role="button">See data in memory</a>
+        </footer>
+      </article>
+    </main>
   </body>
 </html>
