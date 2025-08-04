@@ -1,7 +1,9 @@
-const button = document.querySelector('button')
-const input = document.querySelector('input')
+const form = document.getElementById('memoryForm')
+const button = form.querySelector('button')
+const input = form.querySelector('input')
 
-button.addEventListener('click', () => {
+form.addEventListener('submit', (event) => {
+  event.preventDefault()
   window.name = JSON.stringify(
     { data: input.value, createdAt: Date.now() },
     null,
