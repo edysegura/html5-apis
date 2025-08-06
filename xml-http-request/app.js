@@ -4,7 +4,6 @@ const button = document.querySelector('button')
 const pre = document.querySelector('pre')
 
 button.addEventListener('click', () => {
-  pre.textContent = 'loading...'
   doXMLHttpRequest()
 })
 
@@ -13,6 +12,7 @@ function showResponse(json) {
 }
 
 function doXMLHttpRequest() {
+  pre.textContent = 'loading...'
   const request = new XMLHttpRequest()
   request.open('GET', 'https://api.github.com/users/edysegura')
   request.addEventListener('load', (event) =>
