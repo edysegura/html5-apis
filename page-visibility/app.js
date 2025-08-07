@@ -11,7 +11,7 @@ const logCurrentState = (event) => {
   const visibilityState = event.target.visibilityState
   const message = documentStates[visibilityState]
   const timestamp = new Date().toLocaleTimeString()
-  logArea.value += `[${timestamp}] ${message}\n`
+  logArea.value += `[⏱️${timestamp}] ${message}\n`
   logArea.scrollTop = logArea.scrollHeight
 }
 
