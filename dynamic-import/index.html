@@ -4,11 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dynamic Import</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
     <script type="module" src="app.js"></script>
   </head>
   <body>
-    <h1>Dynamic Import</h1>
-    <button>Load Users</button>
-    <div id="users"></div>
+    <main class="container">
+      <header class="container">
+        <h1>Dynamic Import Demo</h1>
+        <p>Demonstrating dynamic import of JSON data with responsive design</p>
+      </header>
+
+      <section class="container">
+        <button id="load-btn">Load Users</button>
+      </section>
+
+      <section class="container">
+        <div id="users">
+          <article>
+            <h3>Users will appear here</h3>
+            <p>
+              Click the "Load Users" button above to fetch and display the user
+              list.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
