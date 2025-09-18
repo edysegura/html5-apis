@@ -13,10 +13,10 @@ async function loadUsers() {
 
 function listUsers(users) {
   const div = document.querySelector('#users')
-  const html = `
+  const generatedHTML = `
     <uL>
       ${users.map((user) => `<li>${user}</li>`).join('')}
     </ul>
   `
-  div.innerHTML = html
+  div.innerHTML = generatedHTML
 }
