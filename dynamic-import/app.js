@@ -33,7 +33,7 @@ function listUsers(users) {
           (user, index) => `
         <article class="card">
           <header>
-            <h4>User ${index + 1}</h4>
+            <h2>User ${index + 1}</h2>
           </header>
           <p><strong>Name:</strong> ${user}</p>
         </article>
