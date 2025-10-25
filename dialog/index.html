@@ -26,12 +26,19 @@
 
       <p id="returnedValue"></p>
 
+      <!-- It is here to force scroll in the document -->
       <p style="height: 100vh"></p>
 
       <dialog id="color-settings">
         <article>
           <header>
-            <button aria-label="Close" rel="prev"></button>
+            <button
+              aria-label="Close"
+              rel="prev"
+              commandfor="color-settings"
+              command="close"
+              value="closed"
+            ></button>
             <h2>Confirm Your Membership</h2>
           </header>
           <p>
@@ -43,8 +50,21 @@
             <li>Price: $10</li>
           </ul>
           <footer>
-            <button class="secondary" value="cancel">Cancel</button>
-            <button value="default">Confirm</button>
+            <button
+              class="secondary"
+              commandfor="color-settings"
+              command="close"
+              value="cancelled"
+            >
+              Cancel
+            </button>
+            <button
+              commandfor="color-settings"
+              command="close"
+              value="confirmed"
+            >
+              Confirm
+            </button>
           </footer>
         </article>
       </dialog>

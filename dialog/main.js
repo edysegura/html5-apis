@@ -1,13 +1,6 @@
 const dialog = document.getElementById('color-settings')
 const p = document.getElementById('returnedValue')
-
-// prettier-ignore
-const [
-  showDialogButton,
-  closeButton,
-  cancelButton,
-  confirmButton
-] = document.querySelectorAll('button')
+const showDialogButton = document.querySelector('button')
 
 // this is necessary to avoid scrollbar flicker the content when the dialog is opened/closed
 const toggleScrollbar = () => {
@@ -29,20 +22,21 @@ showDialogButton.addEventListener('click', () => {
   toggleScrollbar()
 })
 
-const buttons = [
-  { button: closeButton, value: 'closed' },
-  { button: cancelButton, value: 'cancelled' },
-  { button: confirmButton, value: 'confirmed' },
-]
+// const buttons = [
+//   { button: closeButton, value: 'closed' },
+//   { button: cancelButton, value: 'cancelled' },
+//   { button: confirmButton, value: 'confirmed' },
+// ]
 
-buttons.forEach(({ button, value }) => {
-  button.addEventListener('click', () => {
-    dialog.close(value)
-  })
-})
+// buttons.forEach(({ button, value }) => {
+//   button.addEventListener('click', () => {
+//     dialog.close(value)
+//   })
+// })
 
 dialog.addEventListener('close', (event) => {
   toggleScrollbar()
-  console.log('Dialog event', event.target.returnValue)
-  p.textContent = `The ${dialog.returnValue} event was trigged.`
+  const returnedValue = event.target.returnValue
+  console.log(`Dialog event ${returnedValue}`)
+  p.textContent = `The ${returnedValue} event was trigged.`
 })
