@@ -1,3 +1,12 @@
+import hljs from 'https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/+esm'
+
+const button = document.querySelector('button')
+button.addEventListener('click', async () => {
+  const url = 'https://api.github.com/users/edysegura'
+  const data = (await fetchFromCache(url)) || (await fetchFromNetwork(url))
+  showResponse(data)
+})
+
 async function fetchFromNetwork(url) {
   const response = await fetch(url)
   addToCache(url, response.clone())
@@ -21,10 +30,12 @@ async function fetchFromCache(url) {
   return data
 }
 
-const button = document.querySelector('button')
-button.addEventListener('click', async () => {
+function showResponse(json) {
   const pre = document.querySelector('pre')
-  const url = 'https://api.github.com/users/edysegura'
-  const data = (await fetchFromCache(url)) || (await fetchFromNetwork(url))
-  pre.textContent = JSON.stringify(data, null, 2)
-})
+  const code = document.createElement('code')
+  code.classList.add('language-json')
+  pre.innerHTML = ''
+  pre.appendChild(code)
+  code.textContent = JSON.stringify(json, null, 2)
+  hljs.highlightElement(code)
+}
