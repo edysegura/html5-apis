@@ -1,12 +1,3 @@
-.container {
-  padding: 0;
-}
-
-article {
-  padding-top: 0;
-  margin-bottom: 0;
-}
-
 textarea {
   min-height: 150px;
   resize: vertical;
