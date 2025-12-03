@@ -8,8 +8,8 @@
   <body>
     <h1>HTML5 Popover API</h1>
     <button popovertarget="mypopover">Show Popover</button>
-    <div id="mypopover" role="tooltip" popover>
-      <button>❌</button>
+    <div id="mypopover" role="tooltip" popover="manual">
+      <button popovertarget="mypopover" popovertargetaction="hide">❌</button>
       <p>This is a popover!</p>
     </div>
   </body>
