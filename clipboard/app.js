@@ -17,7 +17,7 @@ button.addEventListener('click', async () => {
 
 function addToLog(text) {
   const textarea = document.querySelector('textarea')
-  textarea.value += text + '\n'
+  textarea.value += `[${Date.now()}] ${text}\n`
 }
 
 document.addEventListener('copy', (event) => {
