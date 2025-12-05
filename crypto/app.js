@@ -9,8 +9,7 @@ async function generateSHA256Hash(message) {
 const form = document.querySelector('form')
 form.addEventListener('submit', async (event) => {
   event.preventDefault()
-  const formData = new FormData(form)
-  const message = formData.get('textToBeEncrypted')
+  const message = form.textToBeEncrypted.value
   const hash = await generateSHA256Hash(message)
   console.log('SHA-256 Hash:', hash, message)
   document.querySelector('output').textContent = hash
