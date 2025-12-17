@@ -5,10 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Shared Worker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
     <script src="js/app.js" defer></script>
   </head>
   <body>
-    <p>Open the page below in a new tab to see the shared worker in action!</p>
-    <p><a href="another-page.html">Another Page</a></p>
+    <main class="container">
+      <header>
+        <h1>Shared Worker</h1>
+        <p class="note">
+          Open the page below in a new tab to see the shared worker in action.
+        </p>
+      </header>
+
+      <section>
+        <p>
+          <a class="contrast" href="another-page.html"
+            >Open Another Page (new tab)</a
+          >
+        </p>
+      </section>
+
+      <section>
+        <h2>Console Output</h2>
+        <p class="muted">
+          All calls to <strong>console.log</strong> are mirrored here with
+          timestamps.
+        </p>
+        <div>
+          <textarea
+            id="console"
+            rows="12"
+            readonly
+            style="width: 100%; font-family: monospace; resize: vertical"
+          ></textarea>
+        </div>
+        <div style="margin-top: 0.5rem">
+          <button id="clearBtn" class="secondary">Clear</button>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

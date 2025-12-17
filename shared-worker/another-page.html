@@ -6,9 +6,32 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Shared Worker</title>
 </head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+</head>
 <body>
-  <p>Shared Worker in action!</p>
-  <p><a href="index.html">Index</a></p>
+  <main class="container">
+    <header>
+      <h1>Shared Worker — Another Page</h1>
+      <p class="note">This page connects to the same shared worker. Console output appears below.</p>
+    </header>
+
+    <section>
+      <p>Shared Worker in action!</p>
+      <p><a class="contrast" href="index.html">Back to Index</a></p>
+    </section>
+
+    <section>
+      <h2>Console Output</h2>
+      <p class="muted">Local mirror of <strong>console.log</strong> with timestamps.</p>
+      <div>
+        <textarea id="console" rows="12" readonly style="width:100%;font-family:monospace;resize:vertical"></textarea>
+      </div>
+      <div style="margin-top:0.5rem;">
+        <button id="clearBtn" class="secondary">Clear</button>
+      </div>
+    </section>
+  </main>
+
   <script src="js/another-page.js"></script>
 </body>
 </html>
