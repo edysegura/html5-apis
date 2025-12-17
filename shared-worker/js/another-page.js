@@ -24,13 +24,16 @@ function appendLog(...args) {
   ta.scrollTop = ta.scrollHeight
 }
 
-const _origConsoleLog = console.log.bind(console)
-console.log = function (...args) {
-  _origConsoleLog(...args)
+function logAndMirror(...args) {
+  try {
+    console.log(...args)
+  } catch (e) {
+    /* ignore */
+  }
   try {
     appendLog(...args)
   } catch (e) {
-    _origConsoleLog('log mirror error', e)
+    console.log('log mirror error', e)
   }
 }
 
@@ -44,5 +47,5 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 sharedWorker.port.onmessage = (event) => {
-  console.log(event.data)
+  logAndMirror(event.data)
 }
