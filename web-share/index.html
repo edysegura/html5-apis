@@ -6,20 +6,43 @@
     <title>Web Share API</title>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
-      integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls"
-      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
+    <style>
+      main.container {
+        max-width: 720px;
+        margin: 3rem auto;
+        padding: 1rem;
+      }
+      .actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      #status {
+        margin-top: 1rem;
+      }
+    </style>
     <script type="module" src="app.js"></script>
   </head>
   <body>
-    <main class="">
-      <h1>Web Share API</h1>
-      <button class="pure-button pure-button-primary" id="shareFileBtn">
-        Share File
-      </button>
-      <button id="shareTextBtn">Share Text</button>
-      <p>This works better on Microsoft Edge</p>
+    <main class="container">
+      <header>
+        <h1>Web Share API</h1>
+        <p class="lead">
+          Share files and links from the browser using the native share dialog.
+        </p>
+      </header>
+
+      <section class="actions" aria-label="share actions">
+        <button class="contrast" id="shareFileBtn">Share File</button>
+        <button id="shareTextBtn">Share Text</button>
+      </section>
+
+      <p id="status" aria-live="polite">
+        Try this on a supported mobile or desktop browser. Works best in
+        Chromium-based browsers.
+      </p>
     </main>
   </body>
 </html>
