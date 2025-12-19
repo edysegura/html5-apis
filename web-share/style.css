@@ -1,0 +1,15 @@
+main.container {
+  max-width: 720px;
+  margin: 3rem auto;
+  padding: 1rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+#status {
+  margin-top: 1rem;
+}
