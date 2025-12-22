@@ -4,13 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML5 Popover API</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <style>
+      /* Small tweaks for the native popover element to look like a Pico card */
+      [popover] {
+        max-width: 320px;
+        padding: 1rem;
+        border-radius: 8px;
+      }
+      .popover-close {
+        float: right;
+        border: none;
+        background: transparent;
+        font-size: 1rem;
+      }
+    </style>
   </head>
   <body>
-    <h1>HTML5 Popover API</h1>
-    <button popovertarget="mypopover">Show Popover</button>
-    <div id="mypopover" role="tooltip" popover="manual">
-      <button popovertarget="mypopover" popovertargetaction="hide">❌</button>
-      <p>This is a popover!</p>
-    </div>
+    <main class="container">
+      <header>
+        <hgroup>
+          <h1>HTML5 Popover API</h1>
+          <p class="lead">A small demo styled with Pico v2</p>
+        </hgroup>
+      </header>
+
+      <section>
+        <p>
+          Use the button below to open a native popover. This example uses
+          Pico.css for a minimal, responsive design.
+        </p>
+
+        <button class="contrast" popovertarget="mypopover">Show Popover</button>
+
+        <div id="mypopover" role="tooltip" popover="manual" class="card">
+          <button
+            class="popover-close"
+            aria-label="Close"
+            popovertarget="mypopover"
+            popovertargetaction="hide"
+          >
+            ✕
+          </button>
+          <h3>Popover title</h3>
+          <p>
+            This is a popover! You can place any content here: links, forms, or
+            actions.
+          </p>
+          <p>
+            <a href="#" class="secondary">Learn more</a>
+            <a href="#" class="contrast">Take action</a>
+          </p>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
