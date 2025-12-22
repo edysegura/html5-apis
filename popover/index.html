@@ -8,20 +8,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
-    <style>
-      /* Small tweaks for the native popover element to look like a Pico card */
-      [popover] {
-        max-width: 320px;
-        padding: 1rem;
-        border-radius: 8px;
-      }
-      .popover-close {
-        float: right;
-        border: none;
-        background: transparent;
-        font-size: 1rem;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main class="container">
@@ -40,24 +27,29 @@
 
         <button class="contrast" popovertarget="mypopover">Show Popover</button>
 
-        <div id="mypopover" role="tooltip" popover="manual" class="card">
+        <div
+          id="mypopover"
+          role="tooltip"
+          popover="manual"
+          class="popover-card"
+        >
           <button
             class="popover-close"
             aria-label="Close"
             popovertarget="mypopover"
             popovertargetaction="hide"
           >
-            ❌
+            ✕
           </button>
-          <h3>Popover title</h3>
-          <p>
-            This is a popover! You can place any content here: links, forms, or
-            actions.
-          </p>
-          <p>
-            <a href="#" class="secondary">Learn more</a>
-            <a href="#" class="contrast">Take action</a>
-          </p>
+          <div class="popover-body">
+            <div class="icon">✓</div>
+            <div class="popover-content">
+              <h3>Success</h3>
+              <p class="muted">
+                Anyone with access can view your invited visitors.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
