@@ -9,15 +9,21 @@ input.oninput = (event) => {
   button.disabled = !event.target.value
 }
 
-button.addEventListener('click', async () => {
+button.addEventListener('click', handleCopyClick)
+
+async function handleCopyClick() {
   const text = input.value
   await clipboard.write(text)
+  toggleButtonLabel()
+  addToLog(`Content copied: ${text}`)
+}
+
+function toggleButtonLabel() {
   button.value = 'Copied!'
   setTimeout(() => {
     button.value = 'Copy'
   }, 2000)
-  addToLog(`Content copied: ${text}`)
-})
+}
 
 function addToLog(text) {
   const textarea = document.querySelector('textarea')
