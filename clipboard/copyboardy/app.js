@@ -1,7 +1,36 @@
 import clipboard from 'https://cdn.jsdelivr.net/npm/clipboardy@5.1.0/+esm'
 
-await clipboard.write('🦄')
+const button = document.querySelector('[type="button"]')
+const input = document.querySelector('input')
 
-const data = await clipboard.read()
+input.select()
 
-console.log('Clipboard data:', data)
+input.oninput = (event) => {
+  button.disabled = !event.target.value
+}
+
+button.addEventListener('click', async () => {
+  const text = input.value
+  await clipboard.write(text)
+  button.value = 'Copied!'
+  setTimeout(() => {
+    button.value = 'Copy'
+  }, 2000)
+  addToLog(`Content copied: ${text}`)
+})
+
+function addToLog(text) {
+  const textarea = document.querySelector('textarea')
+  textarea.value += `[${Date.now()}] ${text}\n`
+}
+
+document.addEventListener('copy', (event) => {
+  console.log('Content copied', event)
+  const text = window.getSelection().toString()
+  addToLog(`Content copied: ${text}`)
+})
+
+document.addEventListener('paste', async (event) => {
+  const text = await clipboard.read()
+  addToLog(`Content pasted: ${text}`)
+})
