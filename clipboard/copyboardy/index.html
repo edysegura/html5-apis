@@ -3,11 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clipboardy Library</title>
-    <script type="module" src="./app.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Clipboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <script type="module" src="app.js"></script>
   </head>
   <body>
-    <h1>Clipboardy Library Example</h1>
-    <p>Copy/paste this text using Clipboardy library</p>
+    <main class="container">
+      <h1>Clipboard</h1>
+      <p>Copy/paste this text</p>
+      <p class="grid">
+        <input
+          type="text"
+          value="🦄"
+          placeholder="Type anything here"
+          autofocus
+        />
+        <input type="button" disabled value="Copy" />
+      </p>
+      <textarea
+        rows="10"
+        placeholder="events logs will be shown here..."
+        readonly
+      ></textarea>
+    </main>
   </body>
 </html>
