@@ -1,6 +1,8 @@
 const button = document.querySelector('[type="button"]')
 const input = document.querySelector('input')
 
+input.select()
+
 input.oninput = (event) => {
   button.disabled = !event.target.value
 }
