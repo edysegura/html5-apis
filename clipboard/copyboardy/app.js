@@ -5,11 +5,9 @@ const input = document.querySelector('input')
 
 input.select()
 
-input.oninput = (event) => {
-  button.disabled = !event.target.value
-}
-
 button.addEventListener('click', handleCopyClick)
+input.addEventListener('input', inputHandler)
+
 document.addEventListener('copy', copyHandler)
 document.addEventListener('paste', pasteHandler)
 
@@ -18,6 +16,10 @@ async function handleCopyClick() {
   await clipboard.write(text)
   toggleButtonLabel()
   addToLog(`Content copied: ${text}`)
+}
+
+function inputHandler(event) {
+  button.disabled = !event.target.value
 }
 
 function toggleButtonLabel() {
