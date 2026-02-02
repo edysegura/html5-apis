@@ -10,6 +10,8 @@ input.oninput = (event) => {
 }
 
 button.addEventListener('click', handleCopyClick)
+document.addEventListener('copy', copyHandler)
+document.addEventListener('paste', pasteHandler)
 
 async function handleCopyClick() {
   const text = input.value
@@ -30,13 +32,12 @@ function addToLog(text) {
   textarea.value += `[${Date.now()}] ${text}\n`
 }
 
-document.addEventListener('copy', (event) => {
-  console.log('Content copied', event)
+function copyHandler() {
   const text = window.getSelection().toString()
   addToLog(`Content copied: ${text}`)
-})
+}
 
-document.addEventListener('paste', async (event) => {
+async function pasteHandler() {
   const text = await clipboard.read()
   addToLog(`Content pasted: ${text}`)
-})
+}
