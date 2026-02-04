@@ -3,33 +3,41 @@ const input = document.querySelector('input')
 
 input.select()
 
-input.oninput = (event) => {
+button.addEventListener('click', handleCopyClick)
+input.addEventListener('input', inputHandler)
+
+document.addEventListener('copy', copyHandler)
+document.addEventListener('paste', pasteHandler)
+
+async function handleCopyClick() {
+  const text = input.value
+  await navigator.clipboard.writeText(text)
+  toggleButtonLabel()
+  addToLog(`Content copied: ${text}`)
+}
+
+function inputHandler(event) {
   button.disabled = !event.target.value
 }
 
-button.addEventListener('click', async () => {
-  const text = input.value
-  await navigator.clipboard.writeText(text)
+function toggleButtonLabel() {
   button.value = 'Copied!'
   setTimeout(() => {
     button.value = 'Copy'
   }, 2000)
-  addToLog(`Content copied: ${text}`)
-})
+}
 
 function addToLog(text) {
   const textarea = document.querySelector('textarea')
   textarea.value += `[${Date.now()}] ${text}\n`
 }
 
-document.addEventListener('copy', (event) => {
-  console.log('Content copied', event)
+function copyHandler() {
   const text = window.getSelection().toString()
-  // const text = event.clipboardData.getData('text/plain')
   addToLog(`Content copied: ${text}`)
-})
+}
 
-document.addEventListener('paste', (event) => {
+async function pasteHandler(event) {
   const text = event.clipboardData.getData('text/plain')
   addToLog(`Content pasted: ${text}`)
-})
+}
