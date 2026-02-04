@@ -53,6 +53,16 @@ async function retrieveData() {
   section.innerHTML = pokeHTML
   document.body.appendChild(section)
 
+  // Add event listeners to delete buttons
+  const deleteButtons = section.querySelectorAll('.delete-btn')
+  deleteButtons.forEach((btn) => {
+    btn.addEventListener('click', async (e) => {
+      const id = parseInt(e.target.dataset.id)
+      await db.pokemon.delete(id)
+      retrieveData()
+    })
+  })
+
   function toHTML(poke) {
     return `
         <article>
@@ -61,6 +71,7 @@ async function retrieveData() {
             <small>ID: ${poke.id}</small>
           </header>
           <img alt="${poke.name}" src="${URL.createObjectURL(poke.picture)}" style="max-width: 100%; height: auto;">
+          <button class="delete-btn outline" data-id="${poke.id}">Delete</button>
         </article>
     `
   }
