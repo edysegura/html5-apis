@@ -1,22 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML5 indexedDB Storage</title>
-    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
     <script src="app.js" type="module"></script>
   </head>
   <body>
-    <h1>Pokémon</h1>
-    <form>
-      <label> Name: <input type="text" name="name" required /> </label>
-      <label>
-        Poke Number: <input type="number" name="pokeNumber" required />
-      </label>
-      <button type="submit">Add</button>
-    </form>
-    <section>Loading...</section>
+    <main class="container">
+      <h1>Pokémon</h1>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="pokeNumber">Poke Number:</label>
+        <input type="number" id="pokeNumber" name="pokeNumber" required />
+        <button type="submit">Add</button>
+      </form>
+      <section class="grid"></section>
+    </main>
   </body>
 </html>

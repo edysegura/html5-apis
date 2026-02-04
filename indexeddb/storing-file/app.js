@@ -55,19 +55,13 @@ async function retrieveData() {
 
   function toHTML(poke) {
     return `
-        <a href="#" class="card-wrapper">
-          <div class="card" style="border-color: var(--grass);">
-            <div class="card-id" style="color: var(--grass);">${poke.id}</div>
-            <div class="card-image">
-              <img alt="${poke.name}" src="${URL.createObjectURL(
-      poke.picture,
-    )}">
-            </div>
-          </div>
-          <div class="card-name" style="background-color: var(--grass);">
-            ${poke.name}
-          </div>
-        </a>
+        <article>
+          <header>
+            <h3>${poke.name}</h3>
+            <small>ID: ${poke.id}</small>
+          </header>
+          <img alt="${poke.name}" src="${URL.createObjectURL(poke.picture)}" style="max-width: 100%; height: auto;">
+        </article>
     `
   }
 }
