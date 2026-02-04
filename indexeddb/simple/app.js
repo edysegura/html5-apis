@@ -46,8 +46,8 @@ async function listPokemon(db) {
       (poke) => `
       <tr>
         <td><img src="${poke.sprite}" alt="${
-        poke.name
-      }" width="96" height="96" /></td>
+          poke.name
+        }" width="96" height="96" /></td>
         <td>${poke.name}</td>
         <td>${poke.types ? poke.types.join(', ') : 'N/A'}</td>
       </tr>
