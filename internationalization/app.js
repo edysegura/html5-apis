@@ -6,3 +6,4 @@ function formatDate(date, locale) {
 
 document.getElementById('en-us-date').textContent = formatDate(date, 'en-US')
 document.getElementById('pt-br-date').textContent = formatDate(date, 'pt-BR')
+document.getElementById('ja-jp-date').textContent = formatDate(date, 'ja-JP')
