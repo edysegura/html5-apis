@@ -67,11 +67,12 @@ async function retrieveData() {
     return `
         <article>
           <header>
-            <h3>${poke.name}</h3>
-            <small>ID: ${poke.id}</small>
+            <h3 class="grid">
+              <span>${poke.name}</span>
+              <button class="delete-btn outline" data-id="${poke.id}">❌</button>
+            </h3>
           </header>
-          <img alt="${poke.name}" src="${URL.createObjectURL(poke.picture)}" style="max-width: 100%; height: auto;">
-          <button class="delete-btn outline" data-id="${poke.id}">Delete</button>
+          <img alt="${poke.name}" src="${URL.createObjectURL(poke.picture)}" style="max-width: 10rem; height: auto;">
         </article>
     `
   }
