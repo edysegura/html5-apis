@@ -4,6 +4,12 @@ function formatDate(date, locale) {
   return new Intl.DateTimeFormat(locale).format(date)
 }
 
-document.getElementById('en-us-date').textContent = formatDate(date, 'en-US')
-document.getElementById('pt-br-date').textContent = formatDate(date, 'pt-BR')
-document.getElementById('ja-jp-date').textContent = formatDate(date, 'ja-JP')
+const locales = [
+  { id: 'en-us-date', locale: 'en-US' },
+  { id: 'pt-br-date', locale: 'pt-BR' },
+  { id: 'ja-jp-date', locale: 'ja-JP' },
+]
+
+locales.forEach(({ id, locale }) => {
+  document.getElementById(id).textContent = formatDate(date, locale)
+})
