@@ -3,6 +3,7 @@ function normalizeResponse(data) {
   if (data.logradouro) {
     // viacep.com.br format
     return {
+      origin: 'viacep',
       cep: data.cep,
       street: data.logradouro,
       complement: data.complemento,
@@ -14,6 +15,7 @@ function normalizeResponse(data) {
   } else if (data.address_type) {
     // cep.awesomeapi.com.br format
     return {
+      origin: 'cep.awesomeapi',
       cep: data.cep,
       street: data.address,
       district: data.district,
@@ -26,6 +28,7 @@ function normalizeResponse(data) {
   } else if (data.service) {
     // brasilapi.com.br format
     return {
+      origin: 'brasilapi',
       cep: data.cep,
       street: data.street,
       district: data.neighborhood,
