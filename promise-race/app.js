@@ -1,13 +1,15 @@
-// implement the promise race to request two free cep rest api and return the first response
-const cep1 = 'https://viacep.com.br/ws/01001000/json/'
-const cep2 = 'https://cep.awesomeapi.com.br/json/01001000'
-const cep3 = 'https://brasilapi.com.br/api/cep/v1/01001000'
+const cep = '01001000'
+const endpoints = [
+  `https://viacep.com.br/ws/${cep}/json/`,
+  `https://cep.awesomeapi.com.br/json/${cep}`,
+  `https://brasilapi.com.br/api/cep/v1/${cep}`,
+]
 
-Promise.race([
-  fetch(cep1).then((response) => response.json()),
-  fetch(cep2).then((response) => response.json()),
-  fetch(cep3).then((response) => response.json()),
-])
+const promises = endpoints.map((endpoint) =>
+  fetch(endpoint).then((response) => response.json()),
+)
+
+Promise.race(promises)
   .then((data) => {
     console.log('First response:', data)
   })
