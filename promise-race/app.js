@@ -1,7 +1,6 @@
 function normalizeResponse(data) {
-  // Detect API format and normalize to a common structure
   if (data.logradouro) {
-    // viacep.com.br format
+    // viacep.com.br
     return {
       origin: 'viacep',
       cep: data.cep,
@@ -13,7 +12,7 @@ function normalizeResponse(data) {
       ddd: data.ddd,
     }
   } else if (data.address_type) {
-    // cep.awesomeapi.com.br format
+    // cep.awesomeapi.com.br
     return {
       origin: 'cep.awesomeapi',
       cep: data.cep,
@@ -26,7 +25,7 @@ function normalizeResponse(data) {
       lng: data.lng,
     }
   } else if (data.service) {
-    // brasilapi.com.br format
+    // brasilapi.com.br
     return {
       origin: 'brasilapi',
       cep: data.cep,
@@ -60,7 +59,6 @@ async function fetchCepData(cep) {
   }
 }
 
-// Example usage:
 fetchCepData('01310100')
   .then((data) => {
     console.log('Normalized response:', data)
