@@ -3,11 +3,106 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Promise race</title>
+    <title>Promise Race - HTML5 APIs</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <style>
+      body {
+        padding: 2rem 1rem;
+      }
+
+      main {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .hero {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .hero h1 {
+        margin-bottom: 0.5rem;
+      }
+
+      .hero p {
+        color: var(--form-element-disabled-brightness);
+        margin: 0;
+      }
+
+      .output-container {
+        margin-top: 2rem;
+      }
+
+      #output {
+        background-color: var(--code-background-color);
+        border: 1px solid var(--code-border-color);
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        overflow-x: auto;
+        max-height: 500px;
+        overflow-y: auto;
+      }
+
+      .info-card {
+        background-color: var(
+          --form-element-background-color,
+          var(--muted-background-color)
+        );
+        border-left: 4px solid var(--primary-focus);
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: var(--border-radius);
+      }
+
+      .info-card strong {
+        display: block;
+        margin-bottom: 0.25rem;
+        color: var(--primary);
+      }
+
+      @media (max-width: 576px) {
+        body {
+          padding: 1rem;
+        }
+
+        .hero h1 {
+          font-size: 1.75rem;
+        }
+
+        #output {
+          font-size: 0.75rem;
+          padding: 1rem;
+          max-height: 400px;
+        }
+      }
+    </style>
     <script type="module" src="app.js"></script>
   </head>
   <body>
-    <h1>Promise race</h1>
-    <pre id="output"></pre>
+    <main>
+      <section class="hero">
+        <h1>🏁 Promise Race</h1>
+        <p>Demonstrates Promise.race() with concurrent CEP data fetching</p>
+      </section>
+
+      <section class="info-card">
+        <strong>About Promise.race()</strong>
+        <p>
+          Promise.race() returns a promise that resolves or rejects as soon as
+          one of the promises in the iterable resolves or rejects, with the
+          value or reason from that promise.
+        </p>
+      </section>
+
+      <section class="output-container">
+        <h2>Results</h2>
+        <pre id="output">Loading CEP data...</pre>
+      </section>
+    </main>
   </body>
 </html>
