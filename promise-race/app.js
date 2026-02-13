@@ -1,42 +1,24 @@
 function normalizeResponse(data) {
-  if (data.logradouro) {
-    // viacep.com.br
-    return {
-      origin: 'viacep',
-      cep: data.cep,
-      street: data.logradouro,
-      complement: data.complemento,
-      district: data.bairro,
-      city: data.localidade,
-      state: data.uf,
-      ddd: data.ddd,
-    }
-  } else if (data.address_type) {
-    // cep.awesomeapi.com.br
-    return {
-      origin: 'cep.awesomeapi',
-      cep: data.cep,
-      street: data.address,
-      district: data.district,
-      city: data.city,
-      state: data.state,
-      ddd: data.ddd,
-      lat: data.lat,
-      lng: data.lng,
-    }
-  } else if (data.service) {
-    // brasilapi.com.br
-    return {
-      origin: 'brasilapi',
-      cep: data.cep,
-      street: data.street,
-      district: data.neighborhood,
-      city: data.city,
-      state: data.state,
-    }
-  }
+  const origin = data.logradouro
+    ? 'viacep'
+    : data.address_type
+      ? 'cep.awesomeapi'
+      : data.service
+        ? 'brasilapi'
+        : 'unknown'
 
-  return data
+  return {
+    origin,
+    cep: data.cep || '',
+    street: data.logradouro || data.address || data.street || '',
+    complement: data.complemento || '',
+    district: data.bairro || data.district || data.neighborhood || '',
+    city: data.localidade || data.city || '',
+    state: data.uf || data.state || '',
+    ddd: data.ddd || '',
+    lat: data.lat || '',
+    lng: data.lng || '',
+  }
 }
 
 async function fetchCepData(cep) {
