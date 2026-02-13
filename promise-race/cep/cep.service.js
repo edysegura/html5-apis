@@ -1,12 +1,12 @@
-function normalizeResponse(data) {
-  const origin = data.logradouro
-    ? 'viacep'
-    : data.address_type
-      ? 'cep.awesomeapi'
-      : data.service
-        ? 'brasilapi'
-        : 'unknown'
+function findOrigin(data) {
+  if (data.logradouro) return 'viacep'
+  if (data.address_type) return 'cep.awesomeapi'
+  if (data.service) return 'brasilapi'
+  return 'unknown'
+}
 
+function normalizeResponse(data) {
+  const origin = findOrigin(data)
   return {
     origin,
     cep: data.cep || '',
