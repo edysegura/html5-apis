@@ -1,7 +1,7 @@
 import { fetchCepData } from './cep/cep.service.js'
 
+const outputElement = document.getElementById('output')
 try {
-  const outputElement = document.getElementById('output')
   const data = await fetchCepData('01310100')
   outputElement.textContent = JSON.stringify(data, null, 2)
 } catch (error) {
