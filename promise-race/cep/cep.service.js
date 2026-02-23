@@ -29,11 +29,16 @@ export async function fetchCepData(cep) {
   ]
 
   const cepPromises = endpoints.map((endpoint) =>
-    fetch(endpoint).then((response) => response.json()),
+    fetch(endpoint)
+      .then((response) => response.json())
+      .then((data) => ({ data, endpoint })),
   )
 
   try {
-    const data = await Promise.race(cepPromises)
+    const { data, endpoint } = await Promise.race(cepPromises)
+    const response = normalizeResponse(data)
+    response.endpoint = endpoint
+    return response
     return normalizeResponse(data)
   } catch (error) {
     console.error('Error:', error)
