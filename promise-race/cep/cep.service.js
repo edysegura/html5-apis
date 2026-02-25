@@ -1,14 +1,15 @@
-function findOrigin(data) {
-  if (data.logradouro) return 'viacep'
-  if (data.address_type) return 'cep.awesomeapi'
-  if (data.service) return 'brasilapi'
+function findOrigin(endpoint) {
+  if (endpoint.includes('viacep')) return 'viacep'
+  if (endpoint.includes('awesomeapi')) return 'cep.awesomeapi'
+  if (endpoint.includes('brasilapi')) return 'brasilapi'
   return 'unknown'
 }
 
-function normalizeResponse(data) {
-  const origin = findOrigin(data)
+function normalizeResponse(data, endpoint) {
+  const origin = findOrigin(endpoint)
   return {
     origin,
+    endpoint,
     cep: data.cep || '',
     street: data.logradouro || data.address || data.street || '',
     complement: data.complemento || '',
@@ -36,8 +37,7 @@ export async function fetchCepData(cep) {
 
   try {
     const { data, endpoint } = await Promise.race(cepPromises)
-    const response = normalizeResponse(data)
-    response.endpoint = endpoint
+    const response = normalizeResponse(data, endpoint)
     return response
   } catch (error) {
     console.error('Error:', error)
