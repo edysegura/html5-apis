@@ -1,4 +1,4 @@
-'use strict'
+import hljs from 'https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/+esm'
 
 const button = document.querySelector('button')
 const pre = document.querySelector('pre')
@@ -22,6 +22,7 @@ function doXMLHttpRequest() {
     console.log('---> Status:', event.target.status)
     logResponseHeaders(event.target)
     pre.textContent = event.target.responseText
+    hljs.highlightElement(pre)
   })
   request.send()
 }
