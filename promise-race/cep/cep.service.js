@@ -39,7 +39,6 @@ export async function fetchCepData(cep) {
     const response = normalizeResponse(data)
     response.endpoint = endpoint
     return response
-    return normalizeResponse(data)
   } catch (error) {
     console.error('Error:', error)
     throw error
