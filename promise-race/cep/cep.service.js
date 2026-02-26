@@ -1,12 +1,13 @@
-function findOrigin(endpoint) {
-  if (endpoint.includes('viacep')) return 'viacep'
-  if (endpoint.includes('awesomeapi')) return 'cep.awesomeapi'
-  if (endpoint.includes('brasilapi')) return 'brasilapi'
+function findOrigin(data) {
+  // Detect origin based on response structure
+  if (data.service === 'brasilapi') return 'brasilapi'
+  if (data.address_type !== undefined) return 'cep.awesomeapi'
+  if (data.logradouro !== undefined || data.ddd !== undefined) return 'viacep'
   return 'unknown'
 }
 
 function normalizeResponse(data, endpoint) {
-  const origin = findOrigin(endpoint)
+  const origin = findOrigin(data)
   return {
     origin,
     endpoint,
