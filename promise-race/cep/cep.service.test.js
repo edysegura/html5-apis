@@ -1,5 +1,5 @@
 import { test, expect, mock } from 'bun:test'
-import { fetchCepData } from './cep.service.js'
+import { fetchCepData, findOrigin } from './cep.service.js'
 
 // Mock data from different APIs
 const mockViaCepData = {
@@ -140,10 +140,7 @@ test('findOrigin identifies unknown endpoint', () => {
   ]
 
   for (const { endpoint, expected } of testEndpoints) {
-    let result = 'unknown'
-    if (endpoint.includes('viacep')) result = 'viacep'
-    if (endpoint.includes('awesomeapi')) result = 'cep.awesomeapi'
-    if (endpoint.includes('brasilapi')) result = 'brasilapi'
+    let result = findOrigin(endpoint)
     expect(result).toBe(expected)
   }
 })

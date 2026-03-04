@@ -1,4 +1,4 @@
-function findOrigin(endpoint) {
+export function findOrigin(endpoint) {
   if (endpoint.includes('viacep')) return 'viacep'
   if (endpoint.includes('awesomeapi')) return 'cep.awesomeapi'
   if (endpoint.includes('brasilapi')) return 'brasilapi'
