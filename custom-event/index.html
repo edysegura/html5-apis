@@ -4,16 +4,110 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Custom Event</title>
+    <!-- PicoCSS v2 CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--form-element-spacing-vertical)
+          var(--form-element-spacing-horizontal);
+      }
+
+      .container {
+        width: 100%;
+        max-width: 80%;
+      }
+
+      .event-box {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      #eventLog {
+        font-family: monospace;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        background-color: var(--code-background-color);
+        padding: var(--form-element-spacing-vertical);
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 576px) {
+        main {
+          padding: var(--form-element-spacing-vertical) 0.75rem;
+        }
+
+        .container {
+          max-width: 100%;
+        }
+
+        #eventLog {
+          min-height: 200px;
+        }
+      }
+
+      @media (min-width: 577px) {
+        #eventLog {
+          min-height: 300px;
+        }
+      }
+
+      footer {
+        text-align: center;
+        padding: 1rem;
+        border-top: 1px solid var(--form-element-border-color);
+        font-size: 0.875rem;
+      }
+    </style>
     <script src="app.js" defer></script>
   </head>
   <body>
-    <h1>Custom Event</h1>
-    <button id="trigger">Trigger Custom Event</button>
-    <textarea
-      id="eventLog"
-      cols="30"
-      rows="10"
-      placeholder="Event log..."
-    ></textarea>
+    <main>
+      <div class="container">
+        <article class="event-box">
+          <header>
+            <h1>Custom Event Demo</h1>
+          </header>
+
+          <p>
+            Trigger a custom event to demonstrate how custom events work in
+            JavaScript. Click the button to dispatch an event and see the
+            messages logged below.
+          </p>
+
+          <button id="trigger" type="button">Trigger Custom Event</button>
+
+          <fieldset>
+            <label for="eventLog">Event Log</label>
+            <textarea
+              id="eventLog"
+              placeholder="Event log messages will appear here..."
+              readonly
+            ></textarea>
+          </fieldset>
+        </article>
+      </div>
+    </main>
+
+    <footer>
+      <small>Custom Event API Demo | HTML5 APIs</small>
+    </footer>
   </body>
 </html>
