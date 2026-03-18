@@ -8,10 +8,10 @@ const eventAwesome = new CustomEvent('awesome', {
 })
 
 // The form element listens for the custom "awesome" event and then consoles the output of the passed text() method
-document.addEventListener('awesome', (e) => {
-  console.log(`👁️ [app.js] `, e.detail.text())
-  eventLog.value += e.detail.text() + '\n'
+document.addEventListener('awesome', (event) => {
+  console.log(`👁️ [app.js] `, event.detail.text())
+  eventLog.value += event.detail.text() + '\n'
 })
 
 // As the user types, the textarea inside the form dispatches/triggers the event to fire, and uses itself as the starting point
-button.addEventListener('click', (e) => document.dispatchEvent(eventAwesome))
+button.addEventListener('click', () => document.dispatchEvent(eventAwesome))
