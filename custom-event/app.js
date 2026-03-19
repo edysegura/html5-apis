@@ -3,11 +3,12 @@ const eventLog = document.getElementById('eventLog')
 
 const eventAwesome = new CustomEvent('awesome', {
   bubbles: true,
-  detail: { text: () => 'Hello, World from a custom event!' },
+  detail: {
+    text: () => `Hello World from a custom event! ${crypto.randomUUID()}`,
+  },
 })
 
 document.addEventListener('awesome', (event) => {
-  console.log(`👁️ [app.js] `, event.detail.text())
   eventLog.value = `[${new Date().toLocaleString()}] ${event.detail.text()}\n${eventLog.value}`
 })
 
