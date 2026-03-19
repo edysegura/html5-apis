@@ -10,7 +10,7 @@ const eventAwesome = new CustomEvent('awesome', {
 // The form element listens for the custom "awesome" event and then consoles the output of the passed text() method
 document.addEventListener('awesome', (event) => {
   console.log(`👁️ [app.js] `, event.detail.text())
-  eventLog.value += event.detail.text() + '\n'
+  eventLog.value += `[${new Date().toLocaleString()}] ${event.detail.text()}\n`
 })
 
 // As the user types, the textarea inside the form dispatches/triggers the event to fire, and uses itself as the starting point
