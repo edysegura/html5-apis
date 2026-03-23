@@ -19,21 +19,7 @@ class WordCount extends HTMLElement {
   style() {
     return `
       <style>
-        p {
-          font-family: Verdana;
-        }
-        span {
-          color: #aaa;
-          opacity: 0;
-          transition: opacity 0.8s;
-        }
-        span::before {
-          content: "➡️ ";
-          color: pink;
-        }
-        p:hover span {
-          opacity: 1;
-        }
+        @import url('./components/word-count/word-count.component.css');
       </style>
     `
   }
