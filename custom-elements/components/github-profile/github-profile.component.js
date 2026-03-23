@@ -9,8 +9,7 @@ class GithubProfile extends HTMLElement {
 
   mainFields(data) {
     const { name, followers, bio } = data
-    const mainFields = { name, followers, bio }
-    return JSON.stringify(mainFields, null, 2)
+    return JSON.stringify({ name, followers, bio }, null, 2)
   }
 
   async render() {
