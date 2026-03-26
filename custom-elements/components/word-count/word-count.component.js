@@ -20,7 +20,7 @@ class WordCount extends HTMLElement {
     const { href } = new URL('./word-count.component.css', import.meta.url)
     return `
       <style>
-      @import url('${href}');
+        @import url('${href}');
       </style>
     `
   }
