@@ -23,12 +23,10 @@ class GithubProfile extends HTMLElement {
   }
 
   style() {
+    const { href } = new URL('./github-profile.css', import.meta.url)
     return `
       <style>
-        img {
-          width: 100px;
-          height: 100px;
-        }
+        @import "${href}";
       </style>
     `
   }
