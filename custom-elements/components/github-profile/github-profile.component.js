@@ -1,3 +1,4 @@
+import hljs from 'https://cdn.jsdelivr.net/npm/highlight.js@11.11.1/+esm'
 import GithubProfileService from './github-profile.service.js'
 
 class GithubProfile extends HTMLElement {
@@ -12,6 +13,12 @@ class GithubProfile extends HTMLElement {
     return JSON.stringify({ name, followers, bio }, null, 2)
   }
 
+  syntaxHighlight() {
+    const code = this.root.querySelector('pre')
+    code.classList.add('language-json')
+    hljs.highlightElement(code)
+  }
+
   async render() {
     const user = this.getAttribute('user')
     const data = await GithubProfileService.fetchUserProfile(user)
@@ -20,6 +27,7 @@ class GithubProfile extends HTMLElement {
       <img src="${data.avatar_url}" alt="" />
       <pre>${this.mainFields(data)}</pre>
     `
+    this.syntaxHighlight()
   }
 
   style() {
