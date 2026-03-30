@@ -13,21 +13,25 @@ class GithubProfile extends HTMLElement {
     return JSON.stringify({ name, followers, bio }, null, 2)
   }
 
-  syntaxHighlight() {
-    const code = this.root.querySelector('pre')
+  syntaxHighlight(json) {
+    const pre = this.root.querySelector('pre')
+    const code = document.createElement('code')
+    pre.appendChild(code)
     code.classList.add('language-json')
+    code.textContent = json
     hljs.highlightElement(code)
   }
 
   async render() {
     const user = this.getAttribute('user')
     const data = await GithubProfileService.fetchUserProfile(user)
+    const json = this.mainFields(data)
     this.root.innerHTML = `
       ${this.style()}
       <img src="${data.avatar_url}" alt="" />
-      <pre>${this.mainFields(data)}</pre>
+      <pre></pre>
     `
-    this.syntaxHighlight()
+    this.syntaxHighlight(json)
   }
 
   style() {
