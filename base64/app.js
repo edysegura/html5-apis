@@ -11,7 +11,6 @@ inputElement.addEventListener('input', (event) => {
 
 copyButton.addEventListener('click', async () => {
   if (!outputElement.value) return
-
   try {
     await navigator.clipboard.writeText(outputElement.value)
     copyButton.innerText = 'Copied!'
