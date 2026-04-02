@@ -13,10 +13,7 @@ copyButton.addEventListener('click', async () => {
   if (!outputElement.value) return
   try {
     await navigator.clipboard.writeText(outputElement.value)
-    copyButton.innerText = 'Copied!'
-    setTimeout(() => {
-      copyButton.innerText = 'Copy Base64'
-    }, 2000)
+    copiedNotify()
   } catch (err) {
     console.error('Failed to copy:', err)
   }
@@ -26,3 +23,10 @@ clearButton.addEventListener('click', () => {
   inputElement.value = ''
   outputElement.value = ''
 })
+
+function copiedNotify() {
+  copyButton.innerText = 'Copied!'
+  setTimeout(() => {
+    copyButton.innerText = 'Copy Base64'
+  }, 2000)
+}
