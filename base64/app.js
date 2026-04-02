@@ -5,8 +5,30 @@ const clearButton = document.querySelector('#clear')
 
 inputElement.addEventListener('input', (event) => {
   const text = event.target.value
-  const base64 = btoa(text)
-  outputElement.value = base64
+  if (!text) {
+    outputElement.value = ''
+    return
+  }
+  try {
+    const base64 = btoa(text)
+    outputElement.value = base64
+  } catch (err) {
+    console.error('Failed to encode:', err)
+  }
+})
+
+outputElement.addEventListener('input', (event) => {
+  const base64 = event.target.value
+  if (!base64) {
+    inputElement.value = ''
+    return
+  }
+  try {
+    const text = atob(base64)
+    inputElement.value = text
+  } catch (err) {
+    console.error('Invalid Base64:', err)
+  }
 })
 
 copyButton.addEventListener('click', async () => {
