@@ -4,12 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML5 Server-sent events API - SSE</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
     <script type="module" src="app.js"></script>
   </head>
   <body>
-    <h1>HTML5 Server-sent events API - SSE</h1>
-    <p>This is a simple example of using Server-Sent Events in HTML5.</p>
-    <p>Data from the server will appear below:</p>
-    <div id="output">Connecting...</div>
+    <main class="container">
+      <article class="surface-card">
+        <header>
+          <hgroup>
+            <h1>Server-Sent Events</h1>
+            <p class="lead">
+              A responsive Pico CSS v2 demo of a live event stream.
+            </p>
+          </hgroup>
+          <span class="status-pill" id="status" data-state="connecting">
+            Connecting…
+          </span>
+        </header>
+
+        <p>
+          This example opens a connection to a local SSE endpoint and displays
+          each incoming message in real time.
+        </p>
+
+        <div class="output-panel" id="output" aria-live="polite"></div>
+
+        <footer>
+          <small>Open the local server before interacting with the demo.</small>
+        </footer>
+      </article>
+    </main>
   </body>
 </html>

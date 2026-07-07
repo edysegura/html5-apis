@@ -1,0 +1,105 @@
+:root {
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+main.container {
+  width: min(100%, 48rem);
+}
+
+article.surface-card {
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.3);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: rgba(148, 163, 184, 0.18);
+  color: var(--pico-color);
+}
+
+.status-pill[data-state='success'] {
+  background: rgba(22, 163, 74, 0.18);
+  color: #4ade80;
+}
+
+.status-pill[data-state='error'] {
+  background: rgba(248, 113, 113, 0.2);
+  color: #fda4af;
+}
+
+.output-panel {
+  min-height: 16rem;
+  padding: 1rem;
+  border-radius: var(--pico-border-radius);
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  overflow: auto;
+}
+
+.output-panel:empty::before {
+  content: 'Waiting for the first event…';
+  color: var(--pico-muted-color);
+}
+
+.stream-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.stream-entry:last-child {
+  border-bottom: none;
+}
+
+.stream-time {
+  font-size: 0.8rem;
+  color: var(--pico-muted-color);
+}
+
+.stream-data {
+  white-space: pre-wrap;
+  font-weight: 600;
+}
+
+footer {
+  margin-top: 1rem;
+  color: var(--pico-muted-color);
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 0.75rem;
+  }
+
+  article.surface-card {
+    padding: 1rem;
+  }
+
+  .output-panel {
+    min-height: 12rem;
+  }
+}
