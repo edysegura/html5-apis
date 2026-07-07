@@ -1,12 +1,16 @@
+const PORT = 3000
+const HOST = 'localhost'
+
 Bun.serve({
-  port: 3000,
+  port: PORT,
+  host: HOST,
   routes: {
-    '/events': (req, server) => {
+    '/events': (request, server) => {
       // SSE streams are often quiet between events. By default,
       // Bun.serve closes connections after 10 seconds of inactivity.
       // Disable the idle timeout for this request so the stream
       // stays open indefinitely.
-      server.timeout(req, 0)
+      server.timeout(request, 0)
 
       return new Response(
         async function* () {
@@ -33,4 +37,4 @@ Bun.serve({
   },
 })
 
-console.log('Server running at http://localhost:3000/events')
+console.log(`Server running at http://${HOST}:${PORT}/events`)
