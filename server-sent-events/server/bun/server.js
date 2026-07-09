@@ -40,3 +40,5 @@ Bun.serve({
 console.log(
   `Server running at http://${HOST}:${PORT}/events\n🛑 CTRL+C to stop`,
 )
+
+// bun server.js
