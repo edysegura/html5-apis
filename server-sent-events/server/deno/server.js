@@ -1,4 +1,4 @@
-const PORT = 3001
+const PORT = 3000
 const HOST = 'localhost'
 
 Deno.serve({
@@ -29,6 +29,12 @@ Deno.serve({
           clearInterval(intervalId)
         }
       },
+    })
+
+    // Clean up the interval when the client disconnects
+    request.signal.addEventListener('abort', () => {
+      console.log(`👁️ [server.js] request abort`)
+      clearInterval(intervalId)
     })
 
     return new Response(stream, {
