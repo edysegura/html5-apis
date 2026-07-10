@@ -4,8 +4,8 @@ const HOST = 'localhost'
 Deno.serve({
   hostname: HOST,
   port: PORT,
-  handler(req) {
-    const url = new URL(req.url)
+  handler(request) {
+    const url = new URL(request.url)
 
     if (url.pathname !== '/events') {
       return new Response('Not Found', { status: 404 })
