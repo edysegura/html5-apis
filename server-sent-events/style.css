@@ -50,7 +50,7 @@ header {
 }
 
 .output-panel {
-  min-height: 16rem;
+  height: 16rem;
   padding: 1rem;
   border-radius: var(--pico-border-radius);
   background: rgba(15, 23, 42, 0.75);
