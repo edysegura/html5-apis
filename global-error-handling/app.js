@@ -12,11 +12,11 @@ try {
 }
 
 function error01() {
-  throw new Error('🐞 Error 01')
+  throw new Error('🐞 Error 01 unhandled')
 }
 
 function error02() {
-  throw new Error('🪰 Error 02')
+  throw new Error('🪰 Error 02 unhandled')
 }
 
 function addToLog(message) {
