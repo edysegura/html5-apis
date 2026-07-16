@@ -13,8 +13,8 @@ try {
 
 function generateError(errorNumber) {
   const icons = ['🐞', '🪰', '🦗', '🕷️']
-  const randomIndex = Math.floor(Math.random() * icons.length)
-  throw new Error(`${icons[randomIndex]} Error ${errorNumber} unhandled`)
+  const iconIndex = errorNumber % icons.length
+  throw new Error(`${icons[iconIndex]} Error ${errorNumber} unhandled`)
 }
 
 function addToLog(message) {
@@ -22,7 +22,6 @@ function addToLog(message) {
   logs.value += message + '\n'
 }
 
-setTimeout(() => generateError(1))
-setTimeout(() => generateError(2))
-setTimeout(() => generateError(3))
-setTimeout(() => generateError(4))
+Array.from({ length: 5 }).forEach((_, errorNumber) => {
+  setTimeout(() => generateError(errorNumber + 1))
+})
