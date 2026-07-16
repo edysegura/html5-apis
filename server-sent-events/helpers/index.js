@@ -36,5 +36,5 @@ export const appendMessage = (data) => {
 
   entry.append(time, message)
   output.insertBefore(entry, output.firstChild)
-  output.scrollTop = output.scrollHeight
+  output.scrollTop = 0
 }
