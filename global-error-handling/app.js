@@ -11,12 +11,10 @@ try {
   addToLog(`😶‍🌫️ Handled error: ${error.message}`)
 }
 
-function error01() {
-  throw new Error('🐞 Error 01 unhandled')
-}
-
-function error02() {
-  throw new Error('🪰 Error 02 unhandled')
+function generateError(errorNumber) {
+  const icons = ['🐞', '🪰', '🦗', '🕷️']
+  const randomIndex = Math.floor(Math.random() * icons.length)
+  throw new Error(`${icons[randomIndex]} Error ${errorNumber} unhandled`)
 }
 
 function addToLog(message) {
@@ -24,5 +22,7 @@ function addToLog(message) {
   logs.value += message + '\n'
 }
 
-setTimeout(() => error01())
-setTimeout(() => error02())
+setTimeout(() => generateError(1))
+setTimeout(() => generateError(2))
+setTimeout(() => generateError(3))
+setTimeout(() => generateError(4))
