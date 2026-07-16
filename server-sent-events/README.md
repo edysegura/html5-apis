@@ -7,3 +7,6 @@ Server-Sent Events (SSE) is a standard describing how servers can initiate data 
 - [Understanding Server-Sent Events (SSE) with Node.js](https://itsfuad.medium.com/understanding-server-sent-events-sse-with-node-js-3e881c533081)
 - [Bun Docs - Server-Sent Events](https://bun.com/docs/guides/http/sse)
 - [Deno Docs - Server-Sent Events](https://docs.deno.com/examples/http_server_sse/)
+
+## Videos
+- [Websocket, SSE and Polling](https://www.youtube.com/watch?v=KSCKg_ygFI4)
