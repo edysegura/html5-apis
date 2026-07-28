@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SSE Using HTMX</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.0.0/css/pico.min.css"
+    />
+
     <script
       src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.10/dist/htmx.min.js"
       integrity="sha384-H5SrcfygHmAuTDZphMHqBJLc3FhssKjG7w/CeCpFReSfwBWDTKpkzPP8c+cLsK+V"
@@ -16,11 +22,44 @@
     ></script>
   </head>
   <body>
-    <h1>SSE Using HTMX</h1>
-    <!-- CORS issues, doesn't work with external addresses -->
-    <div hx-ext="sse" sse-connect="/events" sse-swap="message">
-      Contents of this box will be updated in real time with every SSE message
-      received from the chatroom.
-    </div>
+    <main class="container">
+      <header class="hero">
+        <div>
+          <h1>SSE Using HTMX</h1>
+          <p>
+            A responsive SSE demo with HTMX and PicoCSS v2. The message box
+            below updates in real time from the `/events` stream.
+          </p>
+        </div>
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Live Server-Sent Events</h2>
+          <div
+            class="card"
+            hx-ext="sse"
+            sse-connect="/events"
+            sse-swap="message"
+          >
+            Contents of this box will be updated in real time with every SSE
+            message received from the chatroom.
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>How it works</h3>
+          <p>
+            HTMX establishes the SSE connection and swaps incoming messages into
+            this element. PicoCSS keeps the layout responsive across mobile,
+            tablet, and desktop.
+          </p>
+          <p>
+            Make sure your SSE server is on the same origin or returns proper
+            CORS headers for cross-origin usage.
+          </p>
+        </article>
+      </section>
+    </main>
   </body>
 </html>
