@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX 4</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0-beta6"
+      integrity="sha384-6lyVbhrs13b9z7mLOpt/N6R76rtkEBWgCjAXRs/DSWyi2AMnQSs10ijWk+PI8n7W"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1>HTMX 4</h1>
+    <button hx-get="messages.html" hx-target="#messages">Load Messages</button>
+    <div id="messages"></div>
+  </body>
+</html>
