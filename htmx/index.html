@@ -4,15 +4,80 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTMX 4</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
     <script
       src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0-beta6"
       integrity="sha384-6lyVbhrs13b9z7mLOpt/N6R76rtkEBWgCjAXRs/DSWyi2AMnQSs10ijWk+PI8n7W"
       crossorigin="anonymous"
     ></script>
+    <style>
+      body {
+        min-height: 100vh;
+      }
+
+      main.container {
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+        padding-block: clamp(2rem, 8vw, 6rem);
+      }
+
+      .demo-panel {
+        width: min(100%, 42rem);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-block: 1.5rem;
+      }
+
+      .actions button {
+        width: auto;
+      }
+
+      #messages {
+        min-height: 4rem;
+        padding: 1rem;
+        border: 1px solid var(--pico-muted-border-color);
+        border-radius: var(--pico-border-radius);
+        background: var(--pico-card-background-color);
+      }
+
+      #messages:empty::before {
+        color: var(--pico-muted-color);
+        content: "Messages will appear here.";
+      }
+
+      @media (max-width: 576px) {
+        .actions,
+        .actions button {
+          width: 100%;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1>HTMX 4</h1>
-    <button hx-get="messages.html" hx-target="#messages">Load Messages</button>
-    <div id="messages"></div>
+    <main class="container">
+      <section class="demo-panel" aria-labelledby="page-title">
+        <p><strong>HTML5 APIs</strong></p>
+        <h1 id="page-title">HTMX 4</h1>
+        <p>
+          Load a partial HTML response into the page without a full refresh.
+        </p>
+
+        <div class="actions">
+          <button hx-get="messages.html" hx-target="#messages">
+            Load Messages
+          </button>
+        </div>
+
+        <div id="messages" role="status" aria-live="polite"></div>
+      </section>
+    </main>
   </body>
 </html>
