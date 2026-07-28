@@ -9,11 +9,18 @@
       integrity="sha384-H5SrcfygHmAuTDZphMHqBJLc3FhssKjG7w/CeCpFReSfwBWDTKpkzPP8c+cLsK+V"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/htmx-ext-sse@2.2.4"
+      integrity="sha384-A986SAtodyH8eg8x8irJnYUk7i9inVQqYigD6qZ9evobksGNIXfeFvDwLSHcp31N"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <h1>SSE Using HTMX</h1>
-    <p>This is a simple example of using Server-Sent Events with HTMX.</p>
-    <button hx-get="test.html" hx-target="#output">Start SSE</button>
-    <div id="output"></div>
+    <!-- CORS issues, doesn't work with external addresses -->
+    <div hx-ext="sse" sse-connect="/events" sse-swap="message">
+      Contents of this box will be updated in real time with every SSE message
+      received from the chatroom.
+    </div>
   </body>
 </html>
