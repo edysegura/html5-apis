@@ -13,53 +13,7 @@
       integrity="sha384-6lyVbhrs13b9z7mLOpt/N6R76rtkEBWgCjAXRs/DSWyi2AMnQSs10ijWk+PI8n7W"
       crossorigin="anonymous"
     ></script>
-    <style>
-      body {
-        min-height: 100vh;
-      }
-
-      main.container {
-        display: grid;
-        min-height: 100vh;
-        place-items: center;
-        padding-block: clamp(2rem, 8vw, 6rem);
-      }
-
-      .demo-panel {
-        width: min(100%, 42rem);
-      }
-
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        margin-block: 1.5rem;
-      }
-
-      .actions button {
-        width: auto;
-      }
-
-      #messages {
-        min-height: 4rem;
-        padding: 1rem;
-        border: 1px solid var(--pico-muted-border-color);
-        border-radius: var(--pico-border-radius);
-        background: var(--pico-card-background-color);
-      }
-
-      #messages:empty::before {
-        color: var(--pico-muted-color);
-        content: "Messages will appear here.";
-      }
-
-      @media (max-width: 576px) {
-        .actions,
-        .actions button {
-          width: 100%;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main class="container">
