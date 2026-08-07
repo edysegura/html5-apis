@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX Brazilian ZIP Code Form</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.4/dist/htmx.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Brazilian ZIP code lookup</h1>
+
+      <form
+        hx-post="/address"
+        hx-target="#address-results"
+        hx-swap="beforeend"
+      >
+        <label for="zipCode">
+          CEP
+          <input
+            id="zipCode"
+            name="zipCode"
+            type="text"
+            inputmode="numeric"
+            autocomplete="postal-code"
+            placeholder="01001-000"
+            pattern="\d{5}-?\d{3}"
+            required
+          />
+        </label>
+
+        <button type="submit">Fetch address</button>
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>CEP</th>
+            <th>Street</th>
+            <th>Neighborhood</th>
+            <th>City</th>
+            <th>State</th>
+          </tr>
+        </thead>
+        <tbody id="address-results"></tbody>
+      </table>
+    </main>
+  </body>
+</html>

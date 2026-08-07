@@ -1,0 +1,15 @@
+main {
+  padding-block: 2rem;
+}
+
+form {
+  max-width: 32rem;
+}
+
+table {
+  margin-top: 2rem;
+}
+
+.error td {
+  color: #b42318;
+}
