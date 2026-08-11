@@ -6,12 +6,17 @@ const controller = new AbortController()
 btnClick.addEventListener(
   'click',
   (event) => {
-    console.log(`👁️ [app.js] button clicked`)
+    logMessage(`👁️ [app.js] button clicked`)
   },
   { signal: controller.signal },
 ) // pass an AbortSignal to this handler
 
 btnAbort.addEventListener('click', () => {
   controller.abort() // abort the event listener
-  console.log(`👁️ [app.js] event listener aborted`)
+  logMessage(`👁️ [app.js] event listener aborted`)
 })
+
+function logMessage(message) {
+  const log = document.getElementById('log')
+  log.value += `${message}\n`
+}
