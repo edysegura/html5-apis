@@ -20,10 +20,14 @@ btnClick2.addEventListener(
   { signal: controller.signal },
 ) // pass an AbortSignal to this handler
 
-btnAbort.addEventListener('click', () => {
-  controller.abort() // abort the event listener
-  logMessage(`👁️ [app.js] event listener aborted`)
-})
+btnAbort.addEventListener(
+  'click',
+  () => {
+    controller.abort() // abort the event listener
+    logMessage(`👁️ [app.js] event listener aborted`)
+  },
+  { once: true },
+) // only allow this button to be clicked once
 
 function logMessage(message) {
   const log = document.getElementById('log')
