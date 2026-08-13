@@ -24,12 +24,16 @@ btnAbort.addEventListener(
   'click',
   () => {
     controller.abort() // abort the event listener
-    logMessage(`👁️ [app.js] event listener aborted`)
+    const reset = true
+    logMessage(`👁️ [app.js] event listener aborted`, reset)
   },
   { once: true },
 ) // only allow this button to be clicked once
 
-function logMessage(message) {
+function logMessage(message, reset = false) {
   const log = document.getElementById('log')
+  if (reset) {
+    log.value = ''
+  }
   log.value += `${message}\n`
 }
