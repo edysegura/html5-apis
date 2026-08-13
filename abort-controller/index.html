@@ -4,15 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML5 API - Abort Controller</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
   </head>
   <body>
-    <button id="btn-click1">Click me!</button>
-    <button id="btn-click2">Click me too!</button>
-    <button id="btn-abort">Use Abort Controller</button>
-    <textarea
-      id="log"
-      placeholder="Log messages will appear here..."
-    ></textarea>
+    <main class="container">
+      <header>
+        <hgroup>
+          <h1>Abort Controller</h1>
+          <p>Demo of event listener cancellation using the browser API.</p>
+        </hgroup>
+      </header>
+
+      <section class="demo-grid">
+        <article>
+          <h2>Actions</h2>
+          <div class="actions">
+            <button id="btn-click1">Click me!</button>
+            <button id="btn-click2">Click me too!</button>
+            <button id="btn-abort" class="secondary">
+              Use Abort Controller
+            </button>
+          </div>
+        </article>
+
+        <article>
+          <h2>Log</h2>
+          <textarea
+            id="log"
+            aria-label="Event log"
+            placeholder="Log messages will appear here..."
+            readonly
+          ></textarea>
+        </article>
+      </section>
+    </main>
   </body>
 </html>
