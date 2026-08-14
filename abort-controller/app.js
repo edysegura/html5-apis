@@ -7,16 +7,7 @@ const signal = controller.signal
 
 btnClick1.addEventListener('click', clickHandler, { signal })
 btnClick2.addEventListener('click', clickHandler, { signal })
-
-btnAbort.addEventListener(
-  'click',
-  (event) => {
-    controller.abort() // abort the event listener
-    const reset = true
-    logMessage(`👁️ [app.js] ${event.target.dataset.message}`, reset)
-  },
-  { once: true },
-) // only allow this button to be clicked once
+btnAbort.addEventListener('click', clickHandler, { once: true })
 
 function logMessage(message, reset = false) {
   const log = document.getElementById('log')
@@ -28,5 +19,8 @@ function logMessage(message, reset = false) {
 }
 
 function clickHandler(event) {
-  logMessage(`👁️ [app.js] ${event.target.dataset.message}`)
+  const button = event.target
+  const isAbortButton = button.id === 'btn-abort'
+  isAbortButton && controller.abort()
+  logMessage(`👁️ [app.js] ${button.dataset.message}`, isAbortButton)
 }
