@@ -7,7 +7,7 @@ const controller = new AbortController()
 btnClick1.addEventListener(
   'click',
   (event) => {
-    logMessage(`👁️ [app.js] button 1 clicked`)
+    logMessage(`👁️ [app.js] ${event.target.dataset.message}`)
   },
   { signal: controller.signal },
 ) // pass an AbortSignal to this handler
@@ -15,7 +15,7 @@ btnClick1.addEventListener(
 btnClick2.addEventListener(
   'click',
   (event) => {
-    logMessage(`👁️ [app.js] button 2 clicked`)
+    logMessage(`👁️ [app.js] ${event.target.dataset.message}`)
   },
   { signal: controller.signal },
 ) // pass an AbortSignal to this handler
@@ -36,4 +36,5 @@ function logMessage(message, reset = false) {
     log.value = ''
   }
   log.value += `${message}\n`
+  log.scrollTop = log.scrollHeight
 }
