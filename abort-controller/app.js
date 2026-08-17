@@ -9,6 +9,13 @@ btnClick1.addEventListener('click', clickHandler, { signal })
 btnClick2.addEventListener('click', clickHandler, { signal })
 btnClick3.addEventListener('click', clickHandler, { once: true })
 
+function clickHandler(event) {
+  const button = event.target
+  const isAbortButton = button.id === 'btn-click3'
+  isAbortButton && controller.abort()
+  logMessage(`👁️ [app.js] ${button.dataset.message}`, isAbortButton)
+}
+
 function logMessage(message, reset = false) {
   const log = document.getElementById('log')
   if (reset) {
@@ -16,11 +23,4 @@ function logMessage(message, reset = false) {
   }
   log.value += `${message}\n`
   log.scrollTop = log.scrollHeight
-}
-
-function clickHandler(event) {
-  const button = event.target
-  const isAbortButton = button.id === 'btn-click3'
-  isAbortButton && controller.abort()
-  logMessage(`👁️ [app.js] ${button.dataset.message}`, isAbortButton)
 }
