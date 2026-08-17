@@ -18,9 +18,7 @@ function clickHandler(event) {
 
 function logMessage(message, reset = false) {
   const log = document.getElementById('log')
-  if (reset) {
-    log.value = ''
-  }
+  reset && (log.value = '')
   log.value += `${message}\n`
   log.scrollTop = log.scrollHeight
 }
