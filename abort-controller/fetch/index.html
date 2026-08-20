@@ -1,110 +1,45 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Abort API example</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 API - Abort Controller Fetch</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
   </head>
   <body>
-    <div class="wrapper">
-      <h1>Simple offline video player</h1>
-      <div class="controls">
-        <button class="download">Download video</button>
-        <button class="abort hidden">Cancel download</button>
-        <p class="reports"></p>
-      </div>
-      <div class="videoWrapper hidden">
-        <p>
-          Sintel &copy; copyright Blender Foundation |
-          <a href="http://www.sintel.org/">www.sintel.org</a>.
-        </p>
-      </div>
-    </div>
+    <main class="container">
+      <header>
+        <hgroup>
+          <h1>Abort Controller Fetch</h1>
+          <p>Demo of request cancellation using the browser Fetch API.</p>
+        </hgroup>
+      </header>
 
-    <script>
-      const url = 'sintel.mp4'
+      <section class="demo-grid">
+        <article>
+          <h2>Actions</h2>
+          <div class="actions">
+            <button id="download-btn" type="button">Download video</button>
+            <button id="abort-btn" class="secondary hidden" type="button">
+              Cancel download
+            </button>
+          </div>
+          <p id="reports" role="status" aria-live="polite"></p>
+        </article>
 
-      const videoWrapper = document.querySelector('.videoWrapper')
-      const downloadBtn = document.querySelector('.download')
-      const abortBtn = document.querySelector('.abort')
-      const reports = document.querySelector('.reports')
-
-      let controller
-      let progressAnim
-      let animCount = 0
-
-      downloadBtn.addEventListener('click', fetchVideo)
-
-      abortBtn.addEventListener('click', () => {
-        controller.abort()
-        console.log('Download aborted')
-        downloadBtn.classList.remove('hidden')
-      })
-
-      function fetchVideo() {
-        controller = new AbortController()
-        const signal = controller.signal
-
-        downloadBtn.classList.add('hidden')
-        abortBtn.classList.remove('hidden')
-        reports.textContent = 'Video awaiting download...'
-
-        fetch(url, { signal })
-          .then((response) => {
-            if (response.status === 200) {
-              runAnimation()
-              setTimeout(() => console.log('Body used: ', response.bodyUsed), 1)
-              return response.blob()
-            }
-
-            throw new Error('Failed to fetch')
-          })
-          .then((myBlob) => {
-            const video = document.createElement('video')
-
-            video.setAttribute('controls', '')
-            video.src = URL.createObjectURL(myBlob)
-            videoWrapper.appendChild(video)
-            videoWrapper.classList.remove('hidden')
-
-            abortBtn.classList.add('hidden')
-            downloadBtn.classList.add('hidden')
-            reports.textContent = 'Video ready to play'
-          })
-          .catch((e) => {
-            abortBtn.classList.add('hidden')
-            downloadBtn.classList.remove('hidden')
-            reports.textContent = 'Download error: ' + e.message
-          })
-          .finally(() => {
-            clearInterval(progressAnim)
-            animCount = 0
-          })
-      }
-
-      function runAnimation() {
-        progressAnim = setInterval(() => {
-          switch (animCount++ & 3) {
-            case 0:
-              reports.textContent =
-                'Download occuring; waiting for video player to be constructed'
-              break
-            case 1:
-              reports.textContent =
-                'Download occuring; waiting for video player to be constructed.'
-              break
-            case 2:
-              reports.textContent =
-                'Download occuring; waiting for video player to be constructed..'
-              break
-            case 3:
-              reports.textContent =
-                'Download occuring; waiting for video player to be constructed...'
-              break
-          }
-        }, 300)
-      }
-    </script>
+        <article id="video-wrapper" class="hidden">
+          <h2>Video</h2>
+          <p>
+            Sintel &copy; copyright Blender Foundation |
+            <a href="http://www.sintel.org/">www.sintel.org</a>.
+          </p>
+        </article>
+      </section>
+    </main>
   </body>
 </html>
