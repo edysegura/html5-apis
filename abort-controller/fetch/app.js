@@ -14,11 +14,12 @@ abortBtn.addEventListener('click', abortDownload)
 
 async function fetchVideo() {
   controller = new AbortController()
+  const signal = controller.signal
 
   setDownloadState()
 
   try {
-    const response = await fetch(videoUrl, { signal: controller.signal })
+    const response = await fetch(videoUrl, { signal })
 
     if (!response.ok) {
       throw new Error(`Failed to fetch video: ${response.status}`)
